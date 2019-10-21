@@ -79,7 +79,6 @@
     "publisher-subscriber-pattern": "2.0.4",
     "rendering-recursive-client-side": "0.1.2",
     "rendering-recursive-server-side": "0.1.2",
-    "sparkpost": "2.1.4",
     "uuid": "3.3.3"
   }
 }
