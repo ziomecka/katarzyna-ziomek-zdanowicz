@@ -8,21 +8,24 @@ const buildRender = require('rendering-recursive-client-side').default;
 const buildCreateComponent = async ({
   classNames = {},
   options = [],
-  globals = {},
+  globals = {
+    createComponent: true,
+    helpers: false,
+  },
 }: BuildCreateComponentProps = {}): Promise<{
   helpers: Helpers;
   createComponent: unknown;
 }> => {
-  const { createComponent, helpers } = await commonBuilder({
+  const { createComponent: cc, helpers: h } = await commonBuilder({
     render: buildRender(document),
     inject: { classNames },
     options,
   });
 
-  if (globals.createComponent) global.createComponent = createComponent;
-  if (globals.helpers) global.helpers = helpers;
+  if (globals.createComponent) global.createComponent = cc;
+  if (globals.helpers) global.helpers = h;
 
-  return { createComponent, helpers };
+  return { createComponent: cc, helpers: h };
 };
 
 export { buildCreateComponent };
