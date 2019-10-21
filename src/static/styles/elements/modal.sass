@@ -1,6 +1,26 @@
 $margin-modal: $sm-spacing
 $modal-width: $typography-width * 2
 $modal-animation-duration: .2s
+$margin: .4rem
+
+$xs-height-close-button: $xs-width-button-icon
+$sm-height-close-button: $sm-width-button-icon
+
+$xs-margin-close-button: .4rem
+$sm-margin-close-button: .4rem
+
+.modal-action
+  position: absolute
+  top: 0
+  height: calc(2 * #{$lg-spacing})
+  width: 100%
+
+.modal-padding--top
+  padding-top: calc(2 * #{$lg-spacing})
+
+.modal-content
+  height: calc(100% - 2 * #{$lg-spacing})
+  overflow-y: scroll
 
 .modal--size
   height: calc(100% - #{$xs-footer-height})
@@ -23,25 +43,25 @@ $modal-animation-duration: .2s
 $close-button-height: 24
 $close-button-position: 1rem
 $close-button-margin: 1rem
-
 .button-icon--description
-  &:after
-    display: inline-block
+  &:before
+    display: inline-flex
+    height: 100%
+    align-items: center
+    justify-content: flex-end
     content: attr(data-label)
     position: absolute
-    right: $xs-spacing
+    right: $md-spacing
     @include absolute-center--y
     width: 100
     font-weight: 400
     text-transform: uppercase
-    margin-right: $xs-spacing
     @media(min-width: $md-media)
       margin-right: $sm-spacing
 
 .modal .button-icon
-  position: absolute
-  top: $close-button-position
-  right: $close-button-position
+  position: relative
+  right: $md-spacing
   z-index: 30
   @extend .button-icon--description
   &:hover
@@ -49,8 +69,6 @@ $close-button-margin: 1rem
     path:nth-of-type(1)
       fill: $highlight-primary-color
 
-$close-button-height: 24
-$modal-padding-top: calc(#{$md-spacing} * 2 + #{$close-button-height}px + #{$close-button-position})
 $modal-padding-bottom: $md-spacing
 
 .modal--box
@@ -58,10 +76,6 @@ $modal-padding-bottom: $md-spacing
   overflow: hidden
   z-index: 20
   transition: left $modal-animation-duration, top $modal-animation-duration
-  padding-top: $modal-padding-top
-  > div
-    height: calc(100% - 64px) // TODO!!!
-    @include scrollbar--y
   .content
     width: 100%
     min-height: auto
@@ -90,6 +104,7 @@ $modal-padding-bottom: $md-spacing
   @extend .modal--size
   @extend .modal--position
   @extend .modal--box
+  @extend .modal-padding--top
   &-story
     @extend .story--dots
   section, div

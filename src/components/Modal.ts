@@ -7,6 +7,8 @@ import { TypographyVariant } from './Typography';
 import { closeIcon } from './_constants';
 
 const modalClassName = 'modal';
+const actionClassName = 'modal-action';
+const contentClassName = 'modal-content';
 const showModalClassName = 'modal--show';
 const bodyModalClassName = 'body--modal';
 
@@ -65,27 +67,43 @@ export const Modal: ComponentFunction<ModalProps> = ({
       },
     },
     children: [
-      IconButton({
-        children: [ closeIcon ],
-        eventHandlers: { onClick },
-        attributes: { 'data-label': closeLabel },
-      }),
-      (heading || children.length) && Box({
-        flex,
-        children: [
-          heading && Heading({
-            value: heading,
-            variant: TypographyVariant.h2,
-            attributes: headingAttributes,
-            ...otherHeadingProps,
-          }),
-          ...children,
-        ],
-        attributes: {
-          tabIndex,
-          ...contentAttributes,
+      createComponent({
+        HTMLTag: 'div',
+        className: actionClassName,
+        flex: {
+          justifyContent: 'flex-end',
+          alignItems: 'center',
         },
-        ...otherContentProps,
+        children: [
+          IconButton({
+            children: [ closeIcon ],
+            eventHandlers: { onClick },
+            attributes: { 'data-label': closeLabel },
+          }),
+        ],
+      }),
+      createComponent({
+        HTMLTag: 'div',
+        className: contentClassName,
+        children: [
+          (heading || children.length) && Box({
+            flex,
+            children: [
+              heading && Heading({
+                value: heading,
+                variant: TypographyVariant.h2,
+                attributes: headingAttributes,
+                ...otherHeadingProps,
+              }),
+              ...children,
+            ],
+            attributes: {
+              tabIndex,
+              ...contentAttributes,
+            },
+            ...otherContentProps,
+          }),
+        ],
       }),
     ],
     ...otherModalProps,
