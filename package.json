@@ -16,6 +16,7 @@
     "webpack:client:watch": "npm run webpack:client -- --watch",
     "bundle": "npm run tsc:server && npm run setServer && npm run webpack",
     "inspect": "node --inspect-brk node_modules/webpack/bin/webpack.js --config ./webpack/index.babel.js",
+    "postinstall": "npm run webpack:server && npm run webpack:client",
     "start": "node --optimize_for_size server/index.js $PORT"
   },
   "author": "Katarzyna Ziomek-Zdanowicz",
