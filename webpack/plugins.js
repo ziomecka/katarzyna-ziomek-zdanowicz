@@ -1,4 +1,5 @@
 import * as path from 'path';
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlExcludeAssetsPlugin from 'html-webpack-exclude-assets-plugin';
@@ -6,6 +7,8 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import { isProduction } from './constants';
 import webpack from 'webpack';
+
+const cleanWebpackPlugin = new CleanWebpackPlugin();
 
 export const extractSass = new ExtractTextPlugin(
   'index.css',
@@ -41,6 +44,7 @@ const uglifyPlugin = new UglifyJsPlugin({
 });
 
 export const plugins = [
+  cleanWebpackPlugin,
   extractSass,
   isProduction && compressionPlugin,
   isProduction && uglifyPlugin,
