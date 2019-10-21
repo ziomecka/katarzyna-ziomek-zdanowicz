@@ -1,11 +1,31 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-</head>
-<body class="body--top">
-    <div id="root"></div>
-    <script>window.scrollTo({ behavior: 'auto', top: 0 })</script>
-</body>
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <meta name="author" content="Katarzyna Ziomek-Zdanowicz">
+      <meta name="description" content="Frontend developer"/>
+      <title>Katarzyna Ziomek-Zdanowicz</title>
+  </head>
+  <body class="body--top">
+      <div id="root"></div>
+  </body>
+  <script>
+    window.addEventListener('load', () => {
+      window.scrollTo(0, 0);
+      document.addEventListener("touchmove", (e) => {
+        e.preventDefault();
+        var body = document.documentElement;
+        if (body.requestFullscreen) {
+          body.requestFullscreen();
+        } else if (body.webkitrequestFullscreen) {
+          body.webkitrequestFullscreen();
+        } else if (body.mozrequestFullscreen) {
+          body.mozrequestFullscreen();
+        } else if (body.msrequestFullscreen) {
+          body.msrequestFullscreen();
+        }
+      });
+    });
+  </script>
 </html>

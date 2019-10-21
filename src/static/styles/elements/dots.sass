@@ -1,18 +1,22 @@
 $dots-height: 2rem
 
 .doots
-  position: relative
-  margin-left: 2px
-  white-space: nowrap
-  display: block
-  font-size: 1.2em
-  span
-    margin-left: 2px
-    display: inline-block
-    position: relative
+  display: none
+  @media(min-width: $md-media)
+    position: absolute
+    right: $md-spacing
+    bottom: $md-spacing
+    // margin-left: 2px
+    white-space: nowrap
+    display: block
+    font-size: 1.2rem
+    span
+      margin-left: 2px
+      display: inline-block
+      position: relative
 
-.tile:hover
-  .doots
+.tile:hover .doots
+  @media(min-width: $sm-media)
     span:nth-child(1)
       animation: fall .4s linear .1s
     span:nth-child(2)
