@@ -2,7 +2,6 @@ import {
   PageContent,
   Translations,
 } from '../common.types';
-import { author } from '../../_constants';
 
 const headingPl = require('./heading-pl.txt').default as string;
 const headingEn = require('./heading-en.txt').default as string;
@@ -12,6 +11,8 @@ const cvPl = require('./cv-pl.txt').default as string;
 const cvEn = require('./cv-en.txt').default as string;
 const projectsPl = require('./projects-pl.txt').default as string;
 const projectsEn = require('./projects-en.txt').default as string;
+
+const author = 'Kasia Ziomek-Zdanowicz';
 
 const texts: Translations<FooterContent> = {
   pl: {

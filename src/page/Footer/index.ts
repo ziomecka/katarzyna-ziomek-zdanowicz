@@ -62,12 +62,15 @@ export const Footer: ComponentFunction<FooterProps> = ({
     },
     children: [
       Box({
-        flex: { flex: '1 1 40%' },
+        flex: {
+          flex: '0 2 40%',
+          alignItems: 'flex-start',
+        },
         children: [ Typography({ innerHTML: value }) ],
       }),
       Box({
         flex: {
-          flex: '1 0 40%',
+          flex: '1 0 55%',
           flexWrap: 'nowrap',
           flexDirection: 'column',
           alignItems: 'flex-end',
