@@ -122,7 +122,7 @@ export const Contact: ComponentFunction<ContactProps> = ({
                         onInput: (event: KeyboardEvent): void => {
                           changeName((event.target as HTMLInputElement).value);
                         },
-                        onChange: showFooter,
+                        onBlur: showFooter,
                       },
                     }),
                     Input({
@@ -139,7 +139,7 @@ export const Contact: ComponentFunction<ContactProps> = ({
                           changeEmail((event.target as HTMLInputElement).value);
                           hideFooter();
                         },
-                        onChange: showFooter,
+                        onBlur: showFooter,
                       },
                     }),
                     Button({
