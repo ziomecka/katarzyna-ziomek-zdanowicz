@@ -18,6 +18,9 @@
 #root
   @extend .header-background
 
+$more-button-bottom: 60px
+$more-button-bottom-down: 50px
+
 body header
   padding: $sm-spacing
   .box
@@ -28,3 +31,11 @@ body header
 body.body--top header
   .box
     animation: moveDown .3s linear .5s 5
+
+@keyframes moveDown
+  0%
+    bottom: $more-button-bottom
+  50%
+    bottom: $more-button-bottom-down
+  100%
+    bottom: $more-button-bottom
