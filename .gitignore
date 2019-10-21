@@ -1,0 +1,8 @@
+node_modules
+bundle*
+tsc*
+!tsconfig*
+.env
+todo*
+*.txt
+out*

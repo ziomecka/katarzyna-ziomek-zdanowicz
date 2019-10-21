@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "baseUrl": ".",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "outDir": "./tsc",
+    "types": [
+      "node"
+    ],
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [ "dom", "es2015", "es2015.promise" ]
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "files": [
+    "src/client.ts",
+    "src/server.ts",
+    "_types.d.ts",
+    "src/createComponent/global.ts",
+  ],
+  "exclude": [
+    "node_modules",
+    "*.svg",
+    "out*"
+  ]
+}

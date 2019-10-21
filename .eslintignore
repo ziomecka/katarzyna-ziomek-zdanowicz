@@ -1,0 +1,7 @@
+*__spec__*
+bundleServerDev
+bundleServerProd
+node_modules
+tsc
+src/static/*
+out*

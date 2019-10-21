@@ -1,0 +1,11 @@
+{
+  "exec": "npm run nodemon:start",
+  "ignore": [
+    "bundleServerDev/index.html"
+  ],
+  "watch": [
+    "server/*",
+    "bundleServerDev/*"
+  ],
+  "ext": "js,ts,html,css,sass"
+}
