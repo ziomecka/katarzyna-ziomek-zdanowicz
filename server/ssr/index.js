@@ -6,11 +6,11 @@ const { saveToFile } = require('./save-to-file');
 const { NODE_ENV } = process.env;
 
 const bundlePath = NODE_ENV === 'production'
-  ? '../../bundleServerProd/'
-  : '../../bundleServerDev/';
+  ? '../../bundleServerProd'
+  : '../../bundleServerDev';
 
 module.exports = new Promise(() => {
-  require('../../bundleServerDev/server').default.then((prepareHtml) => {
+  require(path.join(bundlePath, '/server.js')).default.then((prepareHtml) => {
     saveToFile({
       filePath: path.resolve(__dirname, bundlePath, 'index.html'),
       content: ssr({
