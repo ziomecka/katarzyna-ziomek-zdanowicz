@@ -1,0 +1,5 @@
+strona, na której jesteś. Kiedy zaczęłam zastanawiać się jak ją przygotować, pierwszą myślą było wykorzystanie Reacta, w którym ostatanio kodowałam najwięcej. Uznałam jednak, że ta biblioteka jest zbyt zaawansowana jak na tego rodzaju stronę.
+
+Cenię sobie łatwość kodowania, którą oferuje React. Dlatego postanowiłam napisać swoją własna bibliotekę, dzięki której mogłabym szybko osiągnąć zamierzony efekt. Tak też się stało.
+
+Strona na której jesteś jest renderowana po stronie serwera. Przeglądarka ściąga skrypt, dzięki któremu zasila otrzymanego z serwera HTML'a, dołącza do pszczególnych elementów obserwatory zdarzeń i uruchamia skrypty zarejestrowane przez poszczególne komponenty.
