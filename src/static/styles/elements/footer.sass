@@ -1,11 +1,16 @@
 $footer-font-size: .8em
-$footer-line-height: 1.3rem
+$xs-footer-line-height: 1.1rem
+$md-footer-line-height: 1.3rem
 
 .footer-font
   font-size: $footer-font-size
-  line-height: $footer-line-height
+  line-height: $xs-footer-line-height
   color: $hint-color
+  word-break: break-word
+  @media(min-width: $sm-media)
+    word-break: normal
   @media(min-width: $md-media)
+    line-height: $md-footer-line-height
     white-space: pre
 
 .footer-position

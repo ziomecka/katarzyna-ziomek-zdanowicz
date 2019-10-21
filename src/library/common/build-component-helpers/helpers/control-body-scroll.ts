@@ -6,7 +6,7 @@ const turnOnBodyScrolling = (): void => {
 const turnOffBodyScrolling = (): void => {
   const { body } = document;
   // paddingRight of body is set to scrollBar width
-  body.style.paddingRight = (innerHeight - body.offsetWidth).toString();
+  body.style.paddingRight = (innerWidth - body.offsetWidth).toString();
   body.style.overflowY = 'hidden';
 };
 
