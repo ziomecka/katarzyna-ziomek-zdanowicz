@@ -48,7 +48,7 @@ export const Footer: ComponentFunction<FooterProps> = ({
     children: [
       Box({
         flex: {},
-        children: [ Typography({ value }) ],
+        children: [ Typography({ innerHTML: value }) ],
       }),
       Box({
         flex: {

@@ -11,6 +11,7 @@ export const TileList: ComponentFunction<TileListProps> = (
       HTMLTag: 'ul',
       flex: {
         justifyContent: 'flex-start',
+        flexDirection: 'column',
         alignItems: 'center',
         flexWrap: 'wrap',
         ...flex,

@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 export const welcomeId = 'welcome';
 export const homeId = welcomeId;
+export const gridId = 'frontend';
 export const aboutMeId = 'about-me';
-export const gridId = 'grid';
 export const knowledgeId = 'knowledge';
 export const projectId = 'project';
 export const contactId = 'contact';

@@ -51,6 +51,7 @@ export const Page: ComponentFunction = ({
         attributes: { id: constants.gridId },
         style: { position: 'relative' },
         className: boxContentClassName,
+        flex: { alignItems: 'center' },
         children: [
           TileList({
             items: tilesRender({ helpers: {

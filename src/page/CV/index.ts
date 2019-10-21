@@ -19,9 +19,9 @@ export const CV: ComponentFunction<CVProps> = (
 
     return href ? (
       Link({
-        value: dataLabelShort,
+        value: '',
         flex,
-        style: { textDecoration: 'underline', ...style },
+        style,
         className: className
           ? `${ className } ${ cvClassName }`
           : cvClassName,
