@@ -3,7 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const router = express.Router();
-const contact = require('./contact');
+// const contact = require('./contact');
 
 const STATIC_PATH = process.env.NODE_ENV === 'production'
   ? path.resolve(__dirname, '../../bundleServerProd')
@@ -23,7 +23,7 @@ router.get('/', (req, res) => {
   res.sendFile(HTML_PATH);
 });
 
-router.get('/contact*', contact);
+// router.get('/contact*', contact);
 
 module.exports = router;
 
