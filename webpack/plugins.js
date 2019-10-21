@@ -8,7 +8,15 @@ import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import { isProduction } from './constants';
 import webpack from 'webpack';
 
-const cleanWebpackPlugin = new CleanWebpackPlugin();
+const cleanWebpackPluginPatterns = [
+  '**/*', '!static/*', '!**/*.jpg', '!**/server*.js',
+];
+
+const cleanWebpackPlugin = new CleanWebpackPlugin({
+  cleanOnceBeforeBuildPatterns: cleanWebpackPluginPatterns,
+  cleanAfterEveryBuildPatterns: cleanWebpackPluginPatterns,
+  verbose: true,
+});
 
 export const extractSass = new ExtractTextPlugin(
   'index.css',
