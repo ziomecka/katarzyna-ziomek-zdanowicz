@@ -43,12 +43,15 @@ const uglifyPlugin = new UglifyJsPlugin({
   },
 });
 
+const productionPlugins = [
+  compressionPlugin,
+  uglifyPlugin,
+];
+
 export const plugins = [
   cleanWebpackPlugin,
   extractSass,
-  isProduction && compressionPlugin,
-  isProduction && uglifyPlugin,
   htmlWebpackPlugin,
   htmlExcludeAssetsPlugin,
   webpackConstants,
-];
+].concat(isProduction ? productionPlugins : []);
