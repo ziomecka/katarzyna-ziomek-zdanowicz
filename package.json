@@ -15,7 +15,8 @@
     "webpack:server:watch": "npm run webpack:server -- --watch",
     "webpack:client:watch": "npm run webpack:client -- --watch",
     "bundle": "npm run tsc:server && npm run setServer && npm run webpack",
-    "inspect": "node --inspect-brk node_modules/webpack/bin/webpack.js --config ./webpack/index.babel.js"
+    "inspect": "node --inspect-brk node_modules/webpack/bin/webpack.js --config ./webpack/index.babel.js",
+    "start": "node --optimize_for_size server/index.js $PORT"
   },
   "author": "Katarzyna Ziomek-Zdanowicz",
   "license": "ISC",
