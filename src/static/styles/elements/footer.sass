@@ -1,0 +1,69 @@
+$footer-font-size: .8em
+$footer-line-height: 1.2em
+
+.footer-font
+  font-size: $footer-font-size
+  line-height: $footer-line-height
+  color: $hint-color
+  @media(min-width: $md-media)
+    white-space: pre
+
+.footer-position
+  position: absolute
+  bottom: 0
+  left: 0
+
+.footer-size
+  width: 100%
+  height: $footer-height
+
+.footer-background
+  @media(min-width: $md-media)
+    &:before
+      content: ''
+      background-color: $background-color
+      position: absolute
+      height: 100%
+      width: 100%
+      top: 0
+      left: 0
+      opacity: .1
+      transform: opacity 1s
+    &:hover:before
+      opacity: .7
+
+footer
+  @extend .footer-position
+  @extend .footer-size
+  @extend .footer-font
+  @extend .footer-background
+  @include footerPadding
+  overflow: hidden
+  z-index: 20
+  background-color: $background-color
+  @media(min-width: $md-media)
+    background-color: transparent
+    z-index: 0
+  & div.box, p
+    margin: 0
+
+$xs-links-typography-width: 110px
+$md-links-typography-width: 130px
+$links-margin: .3em
+
+footer
+  + .box
+    max-width: 40%
+    // & p
+      // white-space: pre-wrap
+  div.box-links
+    width: 100%
+    margin-bottom: $links-margin
+    .typography
+      margin-right: .5rem
+      width: $xs-links-typography-width
+      white-space: pre
+      @media(min-width: $md-media)
+        width: $md-links-typography-width
+    &:last-child
+      margin-bottom: 0

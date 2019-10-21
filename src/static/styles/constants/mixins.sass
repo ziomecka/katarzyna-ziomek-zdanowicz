@@ -1,0 +1,48 @@
+// @mixin padding($top, $right: $sm-spacing, $bottom: $top, $left: $right)
+//   padding: $top $right $bottom $left
+
+@mixin contentPadding
+  padding: calc(#{$footer-height} + #{$sm-spacing}) $lg-spacing $sm-spacing $lg-spacing
+  // @include padding(calc(#{$footer-height} + #{$sm-spacing}), $lg-spacing, $sm-spacing)
+
+@mixin footerPadding
+  padding: $xs-spacing $lg-spacing
+  // @include padding(#{$xs-spacing $lg-spacing)
+
+@mixin marginLeft($margin: $xs-spacing)
+  margin-left: $margin
+
+@mixin pseudo($height: 100%, $width: auto, $display: inline-flex)
+  display: $display
+  position: absolute
+  height: $height
+  width: $width
+  right: 0
+  top: 0
+
+@mixin absolute-center--x
+  left: 50%
+  transform: translateX(-50%)
+
+@mixin absolute-center--y
+  top: 50%
+  transform: translateY(-50%)
+
+@mixin typography-width
+  width: 80%
+  @media(min-width: $sm-media)
+    max-width: $typography-width
+
+$scrollbar-color: $grey-color // todo darker
+
+@mixin scrollbar--y
+  overflow-y: scroll
+  &::-webkit-scrollbar
+    background-color: $background-color
+    width: $scrollbar-width
+  &::-webkit-scrollbar-thumb
+    background-color: $scrollbar-color
+
+@mixin button--hover
+  &:hover
+    filter: brightness(90%)

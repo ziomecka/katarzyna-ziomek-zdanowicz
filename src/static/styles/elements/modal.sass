@@ -1,0 +1,101 @@
+$margin-modal: $sm-spacing
+$modal-width: $typography-width * 2
+$modal-animation-duration: .2s
+
+.modal--size
+  height: calc(100% - #{$footer-height})
+  width: 100%
+  @media(min-width: $md-media)
+    height: calc(100vh - 2 * #{$margin-modal})
+    max-width: 80%
+    width: $modal-width
+
+.modal--position
+  position: fixed
+  top: 0
+  left: -100%
+  @media(min-width: $md-media)
+    top: -100vh
+    @include absolute-center--x
+
+$close-button-height: 24
+$close-button-position: 1rem
+$close-button-margin: 1rem
+
+.button-icon--description
+  &:after
+    display: inline-block
+    content: attr(data-label)
+    position: absolute
+    right: $xs-spacing
+    @include absolute-center--y
+    width: 100
+    font-weight: 400
+    text-transform: uppercase
+    margin-right: $xs-spacing
+    @media(min-width: $md-media)
+      margin-right: $sm-spacing
+
+.modal .button-icon
+  position: absolute
+  top: $close-button-position
+  right: $close-button-position
+  z-index: 30
+  @extend .button-icon--description
+  &:hover
+    color: $highlight-primary-color
+    path:nth-of-type(1)
+      fill: $highlight-primary-color
+
+$close-button-height: 24
+$modal-padding-top: calc(#{$md-spacing} * 2 + #{$close-button-height}px + #{$close-button-position})
+$modal-padding-bottom: $md-spacing
+
+.modal--box
+  background-color: $background-color
+  overflow: hidden
+  z-index: 20
+  transition: left $modal-animation-duration, top $modal-animation-duration
+  padding-top: $modal-padding-top
+  > div
+    height: calc(100% - 64px) // TODO!!!
+    @include scrollbar--y
+  .content
+    width: 100%
+    min-height: auto
+    padding-bottom: $modal-padding-bottom
+  @media(min-width: $md-media)
+    border: $regular-border solid $border-color
+
+.modal
+  h2, h3
+    display: block
+    text-align: left
+    @include typography-width
+  .content h2, h3
+    margin-top: 1em
+
+.story--dots
+  h2
+    margin-bottom: .5em
+    &:nth-child(1):after
+      content: '...'
+  p:nth-of-type(1)
+    &:before
+      content: '...'
+
+.modal
+  @extend .modal--size
+  @extend .modal--position
+  @extend .modal--box
+  &-story
+    @extend .story--dots
+  section, div
+    outline: 0
+
+div.modal
+  &--show
+    left: 0
+    @media(min-width: $md-media)
+      top: $margin-modal
+      @include absolute-center--x

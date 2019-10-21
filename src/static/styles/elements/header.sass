@@ -1,0 +1,30 @@
+.header-background
+   &::before
+    @include pseudo(100%, 100%, 'block')
+    content: ""
+    background: url('../images/header-640.jpg')
+    background-size: cover
+    background-repeat: no-repeat
+    background-position: center
+    background-attachment: fixed
+    filter: grayscale(40%)
+    opacity: 0.4
+    z-index: -1
+    @media(min-width: $md-media)
+      background-image: url('../images/header-1280.jpg')
+    @media(min-width: $lg-media)
+      background-image: url('../images/header-1920.jpg')
+
+#root
+  @extend .header-background
+
+body header
+  padding: $sm-spacing
+  .box
+    width: 100%
+    position: absolute
+    bottom: $more-button-bottom
+
+body.body--top header
+  .box
+    animation: moveDown .3s linear .5s 5

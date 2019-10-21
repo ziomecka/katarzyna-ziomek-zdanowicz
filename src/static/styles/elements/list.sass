@@ -1,0 +1,28 @@
+ul
+  padding-left: 0
+
+ul.list-tiles
+  width: 100%
+  @media(max-width: $sm-media)
+    flex-direction: column!important
+
+$list-box-padding: .4em
+$list-box-margin: .4em
+
+.listItem--box
+  display: inline-block
+  padding: $list-box-padding
+  margin: $list-box-margin $list-box-margin $list-box-margin 0
+  font-size: .9em
+  border: $thin-border solid $text-color
+  border-radius: $regular-border-radius
+
+$knowledge-item-margin-right: 1rem
+
+.list
+  &--knowledge
+    margin: $sm-spacing 0
+    @include typography-width
+    li
+      margin-left: 0
+      margin-right: $knowledge-item-margin-right

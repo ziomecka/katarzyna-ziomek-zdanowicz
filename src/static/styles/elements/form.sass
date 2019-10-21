@@ -1,0 +1,57 @@
+form
+  width: 100%
+  margin: $lg-spacing 0
+  button
+    display: block
+    margin-left: auto
+    margin-right: auto
+
+.label-up
+  top: -$lg-spacing
+  font-size: .7em
+
+.label-down
+  top: none
+  font-size: initial
+
+.placeholder--hidden
+  &::placeholder
+    color: transparent
+
+.input--width
+  max-width: $input-width
+  width: 100%
+
+input
+  @extend .input--width
+  line-height: $lg-spacing
+  border: none
+  border-bottom: $thin-border solid $border-color
+  position: relative
+  z-index: 10
+  background-color: transparent
+  &::placeholder
+    color: transparent
+  &:invalid
+    color: $error-color
+  &:focus::placeholder
+    color: $text-color
+  &:focus, &:active, &:not(:placeholder-shown)
+    ~ label
+      @extend .label-up
+
+.label
+  display: inline-block
+  position: absolute
+  top: 0
+  @extend .input--width
+  height: $lg-spacing
+  transition: font-size .2s, top .2s
+  &-placeholder
+    position: absolute
+    bottom: 1px
+    line-height: $lg-spacing
+    background: #ffffff
+  &--required
+    &:after
+      content: "*"

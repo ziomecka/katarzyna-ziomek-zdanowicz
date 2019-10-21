@@ -1,0 +1,74 @@
+.border-box
+  box-sizing: border-box
+  overflow: hidden
+  word-break: break-word
+
+.tile-box
+  @extend .border-box
+  background-color: $background-light-color
+  border-radius: $regular-border-radius
+  box-shadow: 0px $box-shadow-size $box-shadow-radius rgba(0,0,0, 0.4)
+  @media(min-width: $sm-media)
+    box-shadow: $box-shadow-size $box-shadow-size $box-shadow-radius rgba(0,0,0, 0.4)
+
+$margin: $sm-spacing
+$margins: $margin * 2
+
+$sm-basis: 50%
+$md-basis: 33%
+$lg-basis: 33%
+
+$xs-height: 100vh / 6
+$sm-height: 100vh / 3
+$md-height: 100vh / 2.5
+$lg-height: 100vh / 2.5
+
+$xs-padding: 6%
+$sm-padding: 6%
+$md-padding: 2%
+$lg-padding: 5%
+
+.tile-margin
+  margin: $margin 0
+  @media(min-width: $sm-media)
+    margin: $margin
+
+.tile-flex
+  max-width: calc((#{$xs-height} - #{$margins}) * 2)
+  width: 100%
+  height: calc(#{$xs-height} - #{$margins})
+  @media(min-width: $sm-media)
+    max-width: none
+    width: auto
+    height: calc(#{$sm-height} - #{$margins})
+    flex: 0 0 calc(#{$sm-basis}  - #{$margins})
+  @media(min-width: $md-media)
+    height: calc(#{$md-height} - #{$margins})
+    flex: 0 0 calc(#{$md-basis}  - #{$margins})
+  @media(min-width: $lg-media)
+    min-height: calc(#{$lg-height} - #{$margins})
+    flex: 0 0 calc(#{$lg-basis}  - #{$margins})
+
+.tile-padding
+  padding: $xs-padding
+  @media(min-width: $sm-media)
+    padding: $sm-padding
+  @media(min-width: $md-media)
+    padding: $md-padding
+  @media(min-width: $lg-media)
+    padding: $lg-padding
+
+$tile-text-width: 300px
+
+.tile
+  @extend .tile-box
+  @extend .tile-flex
+  @extend .tile-padding
+  @extend .tile-margin
+  &:hover
+    background-color: $hover-background-color
+  > h2
+    max-width: $tile-text-width
+    margin-bottom: 0
+    text-transform: uppercase
+    position: relative

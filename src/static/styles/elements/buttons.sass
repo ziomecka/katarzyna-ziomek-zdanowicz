@@ -1,0 +1,61 @@
+.button
+  width: fit-content
+  padding: $sm-spacing
+  background: transparent
+  border: none
+
+button, .button-highlight, .button-icon
+  @extend .button
+
+.button-highlight
+  border: $thin-border solid $highlight-primary-color
+  border-radius: $regular-border-radius
+  background: $highlight-primary-color
+  color: $background-color
+  @include button--hover
+
+.button-icon
+  padding: 0
+  width: $xs-width-button-icon
+  height: $xs-width-button-icon
+  @include marginLeft
+  @media(min-width: $sm-media)
+    width: $sm-width-button-icon
+    height: $sm-width-button-icon
+
+header .button-icon
+  width: $header-button-width-sm
+  height: $header-button-width-sm
+  @include button--hover
+  @media(min-width: $sm-media)
+    width: $header-button-width-lg
+    height: $header-button-width-lg
+
+footer
+  .button-icon
+    width: $xs-width-button-icon
+    height: $xs-width-button-icon
+    &:hover
+      svg path
+        fill: $highlight-primary-color
+.cv
+  position: relative
+  background-color: transparent
+  color: transparent
+  z-index: 1
+  width: 100%
+  &:hover
+    color: $background-color
+  &:hover
+    &:before
+      color: $highlight-primary-color
+  &:before
+    @include pseudo(100%, auto, inline-flex)
+    @include absolute-center--y
+    content: attr(data-label-short)
+    color: initial
+    width: 100%
+    height: inherit
+    text-align: right
+    @media(min-width: $md-media)
+      content: attr(data-label-long)
