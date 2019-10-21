@@ -3,8 +3,10 @@ $modal-width: $typography-width * 2
 $modal-animation-duration: .2s
 
 .modal--size
-  height: calc(100% - #{$footer-height})
+  height: calc(100% - #{$xs-footer-height})
   width: 100%
+  @media(min-width: $sm-media)
+    height: calc(100% - #{$sm-footer-height})
   @media(min-width: $md-media)
     height: calc(100vh - 2 * #{$margin-modal})
     max-width: 80%

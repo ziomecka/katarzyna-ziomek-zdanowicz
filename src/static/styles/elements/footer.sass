@@ -15,7 +15,13 @@ $footer-line-height: 1.2em
 
 .footer-size
   width: 100%
-  height: $footer-height
+  height: $xs-footer-height
+  @media(min-width: $sm-media)
+    height: $sm-footer-height
+  @media(min-width: $md-media)
+    height: $md-footer-height
+  @media(min-width: $lg-media)
+    height: $lg-footer-height
 
 .footer-background
   @media(min-width: $md-media)
