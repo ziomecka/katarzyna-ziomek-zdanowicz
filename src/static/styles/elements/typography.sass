@@ -1,5 +1,14 @@
 $button-letter-spacing: 3px
 
+$xs-font-size: 16px
+$sm-font-size: 22px
+$md-font-size: 24px
+
+$xs-h1-font-size: 2.5rem
+$sm-h1-font-size: 3rem
+$md-h1-font-size: 3rem
+$lg-h1-font-size: 3rem
+
 @font-face
   font-family: 'HammersmithOne'
   src: url('../fonts/HammersmithOne/hammersmithone-regular-webfont.woff2') format("woff2"), url('../fonts/HammersmithOne/hammersmithone-regular-webfont.woff') format("woff")
@@ -9,11 +18,11 @@ $button-letter-spacing: 3px
   src: url('../fonts/Lato/lato-regular-webfont.woff2') format('woff2'), url('../fonts/Lato/lato-regular-webfont.woff') format('woff')
 
 html, .tile h2, .tile h3
-  font-size: 18px
+  font-size: $xs-font-size
   @media(min-width: $sm-media)
-    font-size: 22px
+    font-size: $sm-font-size
   @media(min-width: $md-media)
-    font-size: 26px
+    font-size: $md-font-size
 
 body, h3, input
   font-family: 'Lato', 'Open-Sans', sans-serif
@@ -32,9 +41,20 @@ h1, h2, h3
 
 h1
   margin: 0
-  margin-bottom: .8em
-  letter-spacing: 1px
+  font-size: $xs-h1-font-size
+  font-family: 'HammersmithOne', 'Open-Sans', sans-serif
+  font-weight: 400
   line-height: 1.1em
+  letter-spacing: 1px
+  text-transform: uppercase
+  word-break: break-word
+  opacity: 1
+  @media(min-width: $sm-media)
+    font-size: $sm-h1-font-size
+  @media(min-width: $md-media)
+    font-size: $md-h1-font-size
+  @media(min-width: $lg-media)
+    font-size: $lg-h1-font-size
 
 h2
   margin: 0
@@ -43,19 +63,6 @@ h2
 
 .tile > h2
   font-family: 'Lato', 'Open-Sans', sans-serif
-
-h1
-  font-family: 'HammersmithOne', 'Open-Sans', sans-serif
-  font-weight: 400
-  font-size: 3.5rem
-  margin-bottom: 0
-  text-transform: uppercase
-  word-break: break-word
-  opacity: 1
-  @media(min-width: $md-media)
-    font-size: 4.5rem
-  @media(min-width: $lg-media)
-    font-size: 5rem
 
 a
   &:hover
