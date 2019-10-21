@@ -22,7 +22,7 @@ const texts: Translations<FooterContent> = {
     projects: projectsPl,
   },
   en: {
-    heading: `${ headingEn }\n<span style="white-space: nowrap">${ author }</span>`,
+    heading: `${ headingEn } <span>${ author }</span>`,
     title: '',
     contact: contactEn,
     cv: cvEn,

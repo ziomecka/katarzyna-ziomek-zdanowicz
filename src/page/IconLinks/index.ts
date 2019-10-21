@@ -24,6 +24,7 @@ export const IconLinks: ComponentFunction<IconLinksProps> = (
         className: `${ defaultClassName } ${ className }`,
         flex: {
           justifyContent: 'flex-end',
+          alignItems: 'center',
           ...flex,
         },
         children: links
