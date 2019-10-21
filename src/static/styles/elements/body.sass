@@ -1,11 +1,11 @@
 a[href="#welcome"]
   transition: opacity .2s
 
-.body--modal
-  footer
-    position: fixed
-    a[href="#welcome"]
-      opacity: 0
+.body--modal footer
+  @media(max-width: $sm-media)
+    .footer--hide
+      display: none
+  @media(min-width: $sm-media)
     &:hover
       z-index: 100
       &:before
