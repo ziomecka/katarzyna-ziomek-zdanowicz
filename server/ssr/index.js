@@ -11,7 +11,7 @@ const bundlePath = NODE_ENV === 'production'
 
 console.log(path.resolve(__dirname, bundlePath), 'bundlePath')
 module.exports = new Promise(() => {
-  require(path.resolve(__dirname, bundlePath)).default.then((prepareHtml) => {
+  require(path.resolve(__dirname, bundlePath, '/server.js')).default.then((prepareHtml) => {
     console.log('tries to save to bundelPath', path.resolve(__dirname, bundlePath, 'template.html'));
     console.log(typeof prepareHtml)
     saveToFile({
