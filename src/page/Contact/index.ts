@@ -22,6 +22,7 @@ const emailId = 'email-input';
 const modalShowClassName = 'modal--show';
 const buttonHighlightClassName = 'button-highlight';
 const bodyModalClassName = 'body--modal';
+const hideFooterClassName = 'footer--hide';
 
 export const Contact: ComponentFunction<ContactProps> = ({
   attributes = {},
@@ -51,6 +52,16 @@ export const Contact: ComponentFunction<ContactProps> = ({
     isValid(name(), nameRegExp) &&
     isValid(email(), emailRegExp)
   );
+
+  const hideFooter = (): void => {
+    document.getElementsByTagName('footer')[0]
+      .classList.add(hideFooterClassName);
+  };
+
+  const showFooter = (): void => {
+    document.getElementsByTagName('footer')[0]
+      .classList.remove(hideFooterClassName);
+  };
 
   const onClick = async (): Promise<void> => {
     if (isValidForm()) {
@@ -107,9 +118,11 @@ export const Contact: ComponentFunction<ContactProps> = ({
                         pattern: nameRegExp,
                       },
                       eventHandlers: {
+                        onFocus: hideFooter,
                         onInput: (event: KeyboardEvent): void => {
                           changeName((event.target as HTMLInputElement).value);
                         },
+                        onChange: showFooter,
                       },
                     }),
                     Input({
@@ -121,9 +134,12 @@ export const Contact: ComponentFunction<ContactProps> = ({
                         pattern: emailRegExp,
                       },
                       eventHandlers: {
+                        onFocus: hideFooter,
                         onInput: (event: KeyboardEvent): void => {
                           changeEmail((event.target as HTMLInputElement).value);
+                          hideFooter();
                         },
+                        onChange: showFooter,
                       },
                     }),
                     Button({
