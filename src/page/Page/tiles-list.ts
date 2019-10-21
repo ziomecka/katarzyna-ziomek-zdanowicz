@@ -3,7 +3,6 @@ import {
   Knowledge,
 } from '../';
 import { Content, ModalProps } from '../../components/';
-// import { PageContent } from '../types';
 import constants from './constants';
 import getContent from '../_content/';
 
@@ -25,29 +24,6 @@ const modalProps = {
 };
 
 const buildHeadingId = (strings, id): string => `${ id }-heading`;
-// const mapProps = ([
-//   { content = '', heading, title },
-//   id,
-//   Component,
-//   componentProps = {},
-// ]: Props): MappedProps => {
-//   return {
-//     tileHeading: title,
-//     id,
-//     Component: ({ modalId, attributes = {} } = {}): string => Component({
-//       content,
-//       attributes: { id, ...attributes },
-//       contentInnerHTML: true,
-//       flex: { flexDirection: 'column' },
-//       modalId,
-//       ...componentProps,
-//     }),
-//     ModalProps: {
-//       ...modalProps,
-//       HeadingProps: { heading },
-//     },
-//   };
-// };
 
 export const tilesList: TilesList = ({ helpers }) => {
   const {
@@ -150,12 +126,6 @@ export const tilesList: TilesList = ({ helpers }) => {
 
 type TileList = MappedProps[];
 type TilesList = ({ helpers }) => TileList;
-// type Props = [
-//   PageContent,
-//   string,
-//   ComponentFunction,
-//   Partial<ComponentProps>?
-// ];
 type MappedProps = {
   ModalProps?: Partial<ComponentProps> & Partial<ModalProps> & {
     ContentProps?: Partial<ComponentProps>;

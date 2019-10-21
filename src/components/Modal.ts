@@ -31,8 +31,6 @@ export const Modal: ComponentFunction<ModalProps> = ({
     attributes: headingAttributes = {},
     heading,
     ...otherHeadingProps
-    // flex: headingFlex,
-    // style: headingStyle
   } = {},
   flex,
   ...otherModalProps
