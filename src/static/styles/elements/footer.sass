@@ -1,5 +1,5 @@
 $footer-font-size: .8em
-$footer-line-height: 1.2em
+$footer-line-height: 1.3rem
 
 .footer-font
   font-size: $footer-font-size
@@ -15,7 +15,13 @@ $footer-line-height: 1.2em
 
 .footer-size
   width: 100%
-  height: $footer-height
+  height: $xs-footer-height
+  @media(min-width: $sm-media)
+    height: $sm-footer-height
+  @media(min-width: $md-media)
+    height: $md-footer-height
+  @media(min-width: $lg-media)
+    height: $lg-footer-height
 
 .footer-background
   @media(min-width: $md-media)
@@ -37,31 +43,36 @@ footer
   @extend .footer-size
   @extend .footer-font
   @extend .footer-background
-  @include footerPadding
+  padding: $xs-spacing $sm-spacing
   overflow: hidden
   z-index: 20
   background-color: $background-color
   @media(min-width: $md-media)
+    padding: $xs-spacing $md-spacing
     background-color: transparent
     z-index: 0
   & div.box, p
     margin: 0
+    &:nth-of-type(1)
+      p
+        max-width: 280px
+        span
+          &:after
+            content: ','
+          @media(min-width: $sm-media)
+            display: block
+            &:after
+              content: ''
 
 $xs-links-typography-width: 115px
 $md-links-typography-width: 120px
 $links-margin: .3em
 
 footer
-  + .box
-    max-width: 40%
+  .button-icon
+    @include marginLeft(0)
+    @include marginRight()
   div.box-links
     width: 100%
-    margin-bottom: $links-margin
-    .typography
-      margin-right: .5rem
-      width: $xs-links-typography-width
-      white-space: pre
-      @media(min-width: $md-media)
-        width: $md-links-typography-width
-    &:last-child
-      margin-bottom: 0
+    p
+      text-align: right

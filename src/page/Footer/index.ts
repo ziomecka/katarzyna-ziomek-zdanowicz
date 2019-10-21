@@ -29,69 +29,97 @@ export const Footer: ComponentFunction<FooterProps> = ({
   const copyright = `©${ new Date().getFullYear() }`;
 
   const value = heading
-    ? `${ heading }, ${ copyright }`
+    ? `${ heading } ${ copyright }`
     : copyright;
 
   const typographyProps = {
     flex: {
-      justifyContent: 'flex-start',
+      justifyContent: 'flex-end',
       alignItems: 'center',
+      flex: '1 2 50%',
     },
   };
+
   const boxProps = {
     className: boxLinkClassName,
-    flex: {},
+    flex: {
+      justifyContent: 'flex-end',
+    },
+  };
+
+  const socialMediaProps = {
+    flex: {
+      display: 'inline-flex',
+      justifyContent: 'flex-end',
+      flex: '1 0 50%',
+    },
   };
 
   return FooterComponent({
-    flex: { justifyContent: 'space-between' },
+    flex: {
+      alignItems: 'flex-start',
+      justifyContent: 'space-between',
+    },
     children: [
       Box({
-        flex: {},
+        flex: { flex: '1 1 40%' },
         children: [ Typography({ innerHTML: value }) ],
       }),
       Box({
         flex: {
+          flex: '1 0 40%',
           flexWrap: 'nowrap',
           flexDirection: 'column',
-          alignItems: 'center',
+          alignItems: 'flex-end',
           justifyContent: 'space-between',
         },
         children: [
           Box({
             ...boxProps,
             children: [
-              Typography({ value: cv, ...typographyProps }),
-              CV({
-                flex: { alignItems: 'center' },
-                attributes: {
-                  href,
-                  'aria-hidden': true,
-                },
-                className: buttonIconClassName,
+              Typography({
+                value: cv,
+                ...typographyProps,
+              }),
+              Box({
+                ...socialMediaProps,
+                className: 'socialmedia',
+                children: [
+                  CV({
+                    flex: { justifyContent: 'flex-end' },
+                    attributes: {
+                      href,
+                      'aria-hidden': true,
+                    },
+                    className: buttonIconClassName,
+                  }),
+                ],
               }),
             ],
           }),
           Box({
             ...boxProps,
             children: [
-              Typography({ value: contact, ...typographyProps }),
+              Typography({
+                value: contact,
+                ...typographyProps,
+              }),
               SocialMedia({
                 targetBlank,
-                flex: {
-                  display: 'inline-flex',
-                  justifyContent: 'flex-start',
-                },
+                ...socialMediaProps,
               }),
             ],
           }),
           Box({
             ...boxProps,
             children: [
-              Typography({ value: projects, ...typographyProps }),
+              Typography({
+                value: projects,
+                ...typographyProps,
+              }),
               WorkMedia({
                 targetBlank,
-                flex: { justifyContent: 'flex-start' },
+                ...socialMediaProps,
               }),
             ],
           }),
