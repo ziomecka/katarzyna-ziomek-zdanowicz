@@ -11,6 +11,21 @@
       <div id="root"></div>
   </body>
   <script>
-     window.scrollTo({ behaviour: 'auto', top: 0});
+    window.addEventListener('load', () => {
+      window.scrollTo(0, 0);
+      document.addEventListener("touchmove", (e) => {
+        e.preventDefault();
+        var body = document.documentElement;
+        if (body.requestFullscreen) {
+          body.requestFullscreen();
+        } else if (body.webkitrequestFullscreen) {
+          body.webkitrequestFullscreen();
+        } else if (body.mozrequestFullscreen) {
+          body.mozrequestFullscreen();
+        } else if (body.msrequestFullscreen) {
+          body.msrequestFullscreen();
+        }
+      });
+    });
   </script>
 </html>
