@@ -9,8 +9,11 @@ const bundlePath = NODE_ENV === 'production'
   ? '../../bundleServerProd/'
   : '../../bundleServerDev/';
 
+console.log(path.resolve(__dirname, bundlePath), 'bundlePath')
 module.exports = new Promise(() => {
   require(path.resolve(__dirname, bundlePath, '/server.js')).default.then((prepareHtml) => {
+    console.log('tries to save to bundelPath', path.resolve(__dirname, bundlePath, 'template.html'));
+    console.log(typeof prepareHtml)
     saveToFile({
       filePath: path.resolve(__dirname, bundlePath, 'index.html'),
       content: ssr({
