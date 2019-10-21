@@ -12,7 +12,7 @@ import { cvHref } from '../_constants';
 import getContent from '../_content/';
 import { tilesRender } from './tiles-render';
 
-const boxContentClassName = 'box--content';
+const screenClassName = 'screen';
 
 export const Page: ComponentFunction = ({
   classNames,
@@ -39,6 +39,7 @@ export const Page: ComponentFunction = ({
       Welcome({
         classNames,
         heading: welcome.heading,
+        className: screenClassName,
         attributes: { id: constants.welcomeId },
         IconLinkProps: {
           attributes: {
@@ -50,7 +51,7 @@ export const Page: ComponentFunction = ({
       Box({
         attributes: { id: constants.gridId },
         style: { position: 'relative' },
-        className: boxContentClassName,
+        className: screenClassName,
         flex: { alignItems: 'center' },
         children: [
           TileList({
