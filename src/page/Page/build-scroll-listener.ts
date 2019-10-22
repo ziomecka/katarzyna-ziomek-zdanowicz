@@ -2,6 +2,7 @@
 const throttle = require('lodash.throttle');
 
 const bodyTopZeroClassName = 'body--top';
+const breakpoint = 100;
 
 const isInView = ({
   top,
@@ -35,11 +36,15 @@ function scrollIntoView (id: string, wait: number): () => void {
               top: document.body.scrollHeight,
             });
             document.body.classList.remove(bodyTopZeroClassName);
+            previousIsScrollingDown = isScrollingDown;
           } else {
-            window.scrollTo({ behavior: 'smooth', top: 0 });
-            document.body.classList.add(bodyTopZeroClassName);
+
+            if (bottom >= breakpoint) {
+              window.scrollTo({ behavior: 'smooth', top: 0 });
+              document.body.classList.add(bodyTopZeroClassName);
+              previousIsScrollingDown = false;
+            }
           }
-          previousIsScrollingDown = isScrollingDown;
         }
       }
     }
