@@ -1,14 +1,16 @@
-$footer-font-size: .8em
-$xs-footer-line-height: 1.1rem
-$md-footer-line-height: 1.3rem
+$xs-footer-font-size: .8em
+$sm-footer-font-size: .9em
+$xs-footer-line-height: 1.2em
+$md-footer-line-height: 1.4em
 
 .footer-font
-  font-size: $footer-font-size
+  font-size: $xs-footer-font-size
   line-height: $xs-footer-line-height
   color: $hint-color
   word-break: break-word
   @media(min-width: $sm-media)
     word-break: normal
+    font-size: $sm-footer-font-size
   @media(min-width: $md-media)
     line-height: $md-footer-line-height
     white-space: pre
@@ -48,12 +50,12 @@ footer
   @extend .footer-size
   @extend .footer-font
   @extend .footer-background
-  padding: $sm-spacing $sm-spacing $xs-spacing
+  padding: $xs-spacing $sm-spacing
   overflow: hidden
   z-index: 20
   background-color: $background-color
   @media(min-width: $md-media)
-    padding: $xs-spacing $md-spacing
+    padding: $sm-spacing $md-spacing $xs-spacing
     background-color: transparent
     z-index: 0
   & div.box, p
