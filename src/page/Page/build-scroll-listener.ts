@@ -30,7 +30,10 @@ function scrollIntoView (id: string, wait: number): () => void {
 
         if (isInView({ top, bottom })) {
           if (isScrollingDown) {
-            window.scrollBy({ behavior: 'smooth', top: window.innerHeight });
+            window.scrollTo({
+              behavior: 'smooth',
+              top: document.body.scrollHeight,
+            });
             document.body.classList.remove(bodyTopZeroClassName);
           } else {
             window.scrollTo({ behavior: 'smooth', top: 0 });
