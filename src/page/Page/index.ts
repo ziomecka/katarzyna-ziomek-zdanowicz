@@ -32,7 +32,7 @@ export const Page: ComponentFunction = ({
   windowEventsPublisher.subscribe('load', loadListener);
   windowEventsPublisher.subscribe(
     'scroll',
-    buildScrollListener(document.getElementById(constants.welcomeId)),
+    buildScrollListener(constants.welcomeId),
   );
 
   return Box({
