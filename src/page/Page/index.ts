@@ -10,6 +10,7 @@ import { buildScrollListener } from './build-scroll-listener';
 import constants from './constants';
 import { cvHref } from '../_constants';
 import getContent from '../_content/';
+import { loadListener } from './load-listener';
 import { tilesRender } from './tiles-render';
 
 const screenClassName = 'screen';
@@ -28,6 +29,7 @@ export const Page: ComponentFunction = ({
     welcome,
   } = getContent();
 
+  windowEventsPublisher.subscribe('load', loadListener);
   windowEventsPublisher.subscribe(
     'scroll',
     buildScrollListener(document.getElementById(constants.welcomeId)),
