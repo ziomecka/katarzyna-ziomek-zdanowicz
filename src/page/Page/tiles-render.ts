@@ -56,7 +56,7 @@ export const tilesRender = ({
     }
   };
 
-  return tilesList({ helpers: { removeClass } })
+  return tilesList({ helpers: { addClass, removeClass } })
     .map(({
       HeadingProps = {},
       Component,

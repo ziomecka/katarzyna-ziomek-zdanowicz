@@ -1,13 +1,17 @@
-a[href="#welcome"]
-  transition: opacity .2s
-
 .body--modal footer
-  @media(max-width: $sm-media)
-    .footer--hide
-      display: none
+  @media(max-width: $md-media)
+    position: fixed
+    border-top: $thin-border solid $grey-color
   @media(min-width: $sm-media)
     &:hover
       z-index: 100
       &:before
-        border-top: $regular-border solid $border-color
+        border-top: $thin-border solid $grey-color
         opacity: 1
+
+.body--form
+  @media(max-width: $sm-media)
+    footer
+      display: none!important
+    .modal
+      height: 100%!important
