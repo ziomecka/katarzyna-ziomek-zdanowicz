@@ -13,7 +13,7 @@ export const author = 'Katarzyna Ziomek-Zdanowicz';
 export const expandMoreDoubleIcon =
   require('../static/icons/expand-more-double.svg');
 
-export const cvHref = 'https://drive.google.com/uc?export=download&id=1mw8BRNoX52NC6Ks0Drhkn_LisPZFit6S'; // eslint-disable-line
+export const cvHref = 'https://drive.google.com/uc?export=download&id=1cjWU2dPevA7w56ECJd8JknfLeqtnp_7e'; // eslint-disable-line
 
 export const tag = 'section';
 export const upButtonId = 'button-navigation-up';
