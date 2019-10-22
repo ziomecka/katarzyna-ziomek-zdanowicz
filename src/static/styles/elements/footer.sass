@@ -1,6 +1,6 @@
-$footer-font-size: .8em
-$xs-footer-line-height: 1.1rem
-$md-footer-line-height: 1.3rem
+$footer-font-size: .9em
+$xs-footer-line-height: 1.3em
+$md-footer-line-height: 1.4em
 
 .footer-font
   font-size: $footer-font-size
@@ -48,12 +48,12 @@ footer
   @extend .footer-size
   @extend .footer-font
   @extend .footer-background
-  padding: $sm-spacing $sm-spacing $xs-spacing
+  padding: $xs-spacing $sm-spacing
   overflow: hidden
   z-index: 20
   background-color: $background-color
   @media(min-width: $md-media)
-    padding: $xs-spacing $md-spacing
+    padding: $sm-spacing $md-spacing $xs-spacing
     background-color: transparent
     z-index: 0
   & div.box, p
