@@ -13,8 +13,10 @@ const handler = async ({ query }, res, next) => {
   if (isValid(email, emailRegexp) && isValid(name, nameRegexp)) {
     try {
       await sendEmail({
-        recipients: [ { address: email } ],
-        emailVariant: 'thankYou',
+        from: email,
+        to: 'kasia@zdanowicz.org.pl',
+        subject: `Contact: ${ name }, ${ email }`,
+        text: 'Some email arrived',
       });
       res.send({ result: true });
     } catch (err) {
