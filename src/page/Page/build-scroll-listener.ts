@@ -13,11 +13,11 @@ const isInView = ({
   (bottom >= 0 && bottom <= innerHeight)
 );
 
-function scrollIntoView (wait: number): () => void {
+function scrollIntoView (id: string, wait: number): () => void {
   let previousScrollY = window.scrollY;
   let previousIsScrollingDown = undefined;
 
-  const callback = (this.nextSibling
+  const callback = (document.getElementById(id).nextSibling
     ? (): void => {
 
       const { scrollY } = window;
@@ -25,7 +25,8 @@ function scrollIntoView (wait: number): () => void {
       previousScrollY = scrollY;
 
       if (isScrollingDown !== previousIsScrollingDown) {
-        const { top, bottom }: PositionProps = this.getBoundingClientRect();
+        const $element = document.getElementById(id);
+        const { top, bottom }: PositionProps = $element.getBoundingClientRect();
 
         if (isInView({ top, bottom })) {
           if (isScrollingDown) {
@@ -46,10 +47,10 @@ function scrollIntoView (wait: number): () => void {
 }
 
 export const buildScrollListener =
-  ($element: HTMLElement, wait = 200): () => void => {
-    // for $ssr $element is undefined
-    if ($element) {
-      return scrollIntoView.bind($element)(wait);
+  (id: string, wait = 200): () => void => {
+    // for $ssr getElementById returns undefined
+    if (document.getElementById(id)) {
+      return scrollIntoView(id, wait);
     } else {
       const fakeFunction = (): void => {};
       return fakeFunction;
