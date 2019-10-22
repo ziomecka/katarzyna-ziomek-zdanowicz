@@ -32,10 +32,11 @@ input
   background-color: transparent
   &::placeholder
     color: transparent
+    font-size: .8em
   &:invalid
     color: $error-color
   &:focus::placeholder
-    color: $text-color
+    color: $hint-color
   &:focus, &:active, &:not(:placeholder-shown)
     ~ label
       @extend .label-up
