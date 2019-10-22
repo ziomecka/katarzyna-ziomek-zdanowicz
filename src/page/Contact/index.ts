@@ -22,14 +22,14 @@ const emailId = 'email-input';
 const modalShowClassName = 'modal--show';
 const buttonHighlightClassName = 'button-highlight';
 const bodyModalClassName = 'body--modal';
-const hideFooterClassName = 'footer--hide';
+const bodyFormClassName = 'body--form';
 
 export const Contact: ComponentFunction<ContactProps> = ({
   attributes = {},
   content,
   classNames,
   children = [],
-  helpers: { removeClass },
+  helpers: { addClass, removeClass },
   modalId,
   HeadingProps = {},
 }) => {
@@ -53,15 +53,9 @@ export const Contact: ComponentFunction<ContactProps> = ({
     isValid(email(), emailRegExp)
   );
 
-  const hideFooter = (): void => {
-    document.getElementsByTagName('footer')[0]
-      .classList.add(hideFooterClassName);
-  };
+  const addBodyFormClassName = (): void => addClass(bodyFormClassName);
 
-  const showFooter = (): void => {
-    document.getElementsByTagName('footer')[0]
-      .classList.remove(hideFooterClassName);
-  };
+  const removeBodyFormClassName = (): void => removeClass(bodyFormClassName);
 
   const onClick = async (): Promise<void> => {
     if (isValidForm()) {
@@ -90,7 +84,7 @@ export const Contact: ComponentFunction<ContactProps> = ({
         flexDirection: 'column',
         justifyContent: 'center',
       },
-      style: { padding: '2rem', minHeight: '100%' },
+      style: { minHeight: '100%' },
       children: [
         Box({
           children: [
@@ -118,11 +112,11 @@ export const Contact: ComponentFunction<ContactProps> = ({
                         pattern: nameRegExp,
                       },
                       eventHandlers: {
-                        onFocus: hideFooter,
+                        onFocus: addBodyFormClassName,
                         onInput: (event: KeyboardEvent): void => {
                           changeName((event.target as HTMLInputElement).value);
                         },
-                        onBlur: showFooter,
+                        onBlur: removeBodyFormClassName,
                       },
                     }),
                     Input({
@@ -134,12 +128,12 @@ export const Contact: ComponentFunction<ContactProps> = ({
                         pattern: emailRegExp,
                       },
                       eventHandlers: {
-                        onFocus: hideFooter,
+                        onFocus: addBodyFormClassName,
                         onInput: (event: KeyboardEvent): void => {
                           changeEmail((event.target as HTMLInputElement).value);
-                          hideFooter();
+                          addBodyFormClassName();
                         },
-                        onBlur: showFooter,
+                        onBlur: removeBodyFormClassName,
                       },
                     }),
                     Button({
@@ -173,6 +167,7 @@ export const Contact: ComponentFunction<ContactProps> = ({
 interface ContactProps {
   content: ContactContent;
   helpers: {
+    addClass(className: string): void;
     removeClass(className: string): void;
   };
   modalId: string;
