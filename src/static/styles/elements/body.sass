@@ -1,8 +1,10 @@
 .body--modal footer
-  @media(max-width: $md-media)
-    position: fixed
-    border-top: $thin-border solid $grey-color
+  bottom: -$xs-footer-height
   @media(min-width: $sm-media)
+    bottom: -$sm-footer-height
+  @media(min-width: $md-media)
+    position: fixed
+    bottom: 0
     &:hover
       z-index: 100
       &:before
