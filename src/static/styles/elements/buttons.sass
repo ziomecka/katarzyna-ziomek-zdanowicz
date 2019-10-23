@@ -40,23 +40,20 @@ footer
         fill: $highlight-primary-color
 .cv
   background-color: transparent
-  color: transparent
   z-index: 1
   text-align: right
   margin: 0
   padding: 0
+  text-decoration: none
 a.button-icon.cv
   width: 100%
-  &:hover
-    color: $background-color
-  &:hover
-    &:before
-      color: $highlight-primary-color
   &:after
     display: inline-flex
     content: attr(data-label-short)
-    color: initial
+    color: inherit
     height: inherit
     text-align: left
     @media(min-width: $md-media)
       content: attr(data-label-long)
+    &:hover
+      color: $highlight-primary-color
