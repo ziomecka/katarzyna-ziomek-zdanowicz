@@ -26,12 +26,6 @@ export const Footer: ComponentFunction<FooterProps> = ({
     },
   } = getContent();
 
-  const copyright = `©${ new Date().getFullYear() }`;
-
-  const value = heading
-    ? `${ heading } ${ copyright }`
-    : copyright;
-
   const typographyProps = {
     flex: {
       justifyContent: 'flex-end',
@@ -58,24 +52,22 @@ export const Footer: ComponentFunction<FooterProps> = ({
   return FooterComponent({
     flex: {
       alignItems: 'flex-start',
-      justifyContent: 'space-between',
+      justifyContent: heading ? 'space-between' : 'flex-end',
     },
     children: [
-      Box({
-        flex: {
-          flex: '0 2 40%',
-          alignItems: 'flex-start',
-        },
-        children: [ Typography({ innerHTML: value }) ],
+      heading && Box({
+        flex: { alignItems: 'flex-start' },
+        children: [ Typography({ innerHTML: heading }) ],
       }),
       Box({
         flex: {
           flex: '1 0 55%',
           flexWrap: 'nowrap',
           flexDirection: 'column',
-          alignItems: 'flex-end',
-          justifyContent: 'space-between',
+          alignItems: heading ? 'space-between' : 'flex-end',
+          justifyContent: 'space-around',
         },
+        style: { height: '100%' },
         children: [
           Box({
             ...boxProps,
