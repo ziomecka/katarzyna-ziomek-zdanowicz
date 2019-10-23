@@ -31,6 +31,11 @@ $md-footer-line-height: 1.4em
     height: $lg-footer-height
 
 .footer-background
+  color: $background-color
+  background-color: $text-color
+  @media(min-width: $sm-media)
+    background-color: $background-color
+    color: initial
   @media(min-width: $md-media)
     &:before
       content: ''
@@ -53,7 +58,6 @@ footer
   padding: $xs-spacing $sm-spacing
   overflow: hidden
   z-index: 20
-  background-color: $background-color
   @media(min-width: $md-media)
     padding: $sm-spacing $md-spacing $xs-spacing
     background-color: transparent
