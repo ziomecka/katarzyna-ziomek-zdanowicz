@@ -56,10 +56,7 @@ export const Footer: ComponentFunction<FooterProps> = ({
     },
     children: [
       heading && Box({
-        flex: {
-          flex: '0 2 40%',
-          alignItems: 'flex-start',
-        },
+        flex: { alignItems: 'flex-start' },
         children: [ Typography({ innerHTML: heading }) ],
       }),
       Box({
@@ -67,9 +64,10 @@ export const Footer: ComponentFunction<FooterProps> = ({
           flex: '1 0 55%',
           flexWrap: 'nowrap',
           flexDirection: 'column',
-          justifyContent: 'space-between',
           alignItems: heading ? 'space-between' : 'flex-end',
+          justifyContent: 'space-around',
         },
+        style: { height: '100%' },
         children: [
           Box({
             ...boxProps,
