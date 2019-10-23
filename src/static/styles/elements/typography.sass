@@ -24,6 +24,11 @@ html, .tile h2, .tile h3
   @media(min-width: $md-media)
     font-size: $md-font-size
 
+.tile > h2
+  @media(max-width: $sm-media)
+    font-size: .8em
+    letter-spacing: 1px
+
 body, h3, input
   font-family: 'Lato', 'Open-Sans', sans-serif
   color: $text-color
