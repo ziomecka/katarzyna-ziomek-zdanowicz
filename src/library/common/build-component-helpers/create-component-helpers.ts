@@ -10,6 +10,10 @@ const createComponentHelpers: Map<CreateComponentHelpers, unknown> = new Map([
     import('./helpers/control-body-class-list') as unknown,
   ],
   [
+    CreateComponentHelpers.documentEventsPublisher,
+    import('./helpers/document-events-publisher') as unknown,
+  ],
+  [
     CreateComponentHelpers.windowEventsPublisher,
     import('./helpers/window-events-publisher') as unknown,
   ],
