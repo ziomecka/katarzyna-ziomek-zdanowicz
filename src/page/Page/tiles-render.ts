@@ -24,7 +24,7 @@ export const tilesRender = ({
 }): TileProps[] => {
 
   let unsubscribeForm = fakeFunction;
-  let unsubscribeModal = fakeFunction;
+  let unsubscribeModalFromWindow = fakeFunction;
 
   const buildFormKeydownListener = ($element: HTMLElement) => (
     (event: KeyboardEvent): void => {
@@ -44,15 +44,23 @@ export const tilesRender = ({
     }
   );
 
+  const resetUnsubscribes = (): void => {
+    unsubscribeModalFromWindow = fakeFunction;
+    unsubscribeForm = fakeFunction;
+  };
+
+  const closeModal = (): void => {
+    unsubscribeModalFromWindow();
+    unsubscribeForm();
+    turnOnBodyScrolling();
+    resetUnsubscribes();
+  };
+
   const keydownCallback = (classList) => (event: KeyboardEvent): void => {
     if (event.key.toLowerCase() === 'escape') {
       classList.remove(showModalClassName);
       removeClass(bodyModalClassName);
-      unsubscribeModal();
-      unsubscribeModal = fakeFunction;
-      unsubscribeForm();
-      unsubscribeForm = fakeFunction;
-      turnOnBodyScrolling();
+      closeModal();
     }
   };
 
@@ -82,10 +90,7 @@ export const tilesRender = ({
         Array.from($openedModals).forEach($modal => (
           $modal.classList.remove(showModalClassName)
         ));
-        unsubscribeForm();
-        unsubscribeModal();
-        unsubscribeModal = fakeFunction;
-        unsubscribeForm = fakeFunction;
+        closeModal();
       };
 
       const onClick = (): void => {
@@ -103,7 +108,7 @@ export const tilesRender = ({
           $content.scrollTo({ top: 0 });
           setTimeout(() => $content && ($content as HTMLElement).focus());
 
-          unsubscribeModal = windowEventsPublisher
+          unsubscribeModalFromWindow = windowEventsPublisher
             .subscribe('keydown', keydownCallback(classList));
 
           // todo improve
@@ -149,10 +154,9 @@ export const tilesRender = ({
             ariaDescribedBy: componentId,
             closeLabel: 'close',
             unsubscribe: () => {
-              unsubscribeModal();
-              unsubscribeModal = fakeFunction;
+              unsubscribeModalFromWindow();
               unsubscribeForm();
-              unsubscribeForm = fakeFunction;
+              resetUnsubscribes();
             },
             turnOnBodyScrolling,
             ...otherModalProps,
