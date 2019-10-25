@@ -4,12 +4,8 @@ import {
   plugins,
 } from './plugins';
 import common from './index.common.babel';
-import { isProduction } from './constants';
 import merge from 'webpack-merge';
-
-const outputPath = isProduction
-  ? path.resolve(__dirname, '../bundleServerProd/')
-  : path.resolve(__dirname, '../bundleServerDev/');
+import { outputPath } from './constants';
 
 module.exports = merge(common, {
   output: {
