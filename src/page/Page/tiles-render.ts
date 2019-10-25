@@ -18,13 +18,15 @@ export const tilesRender = ({
   helpers: {
     controlBodyClassList: { addClass, removeClass },
     controlBodyScroll: { turnOnBodyScrolling, turnOffBodyScrolling },
+    documentEventsPublisher,
     windowEventsPublisher,
     loopThroughChildren,
   },
 }): TileProps[] => {
 
   let unsubscribeForm = fakeFunction;
-  let unsubscribeModal = fakeFunction;
+  let unsubscribeModalFromWindow = fakeFunction;
+  let unsubscribeModalFromDocument = fakeFunction;
 
   const buildFormKeydownListener = ($element: HTMLElement) => (
     (event: KeyboardEvent): void => {
@@ -44,15 +46,25 @@ export const tilesRender = ({
     }
   );
 
+  const resetUnsubscribes = (): void => {
+    unsubscribeModalFromWindow = fakeFunction;
+    unsubscribeModalFromDocument = fakeFunction;
+    unsubscribeForm = fakeFunction;
+  };
+
+  const closeModal = (): void => {
+    unsubscribeModalFromWindow();
+    unsubscribeModalFromDocument();
+    unsubscribeForm();
+    turnOnBodyScrolling();
+    resetUnsubscribes();
+  };
+
   const keydownCallback = (classList) => (event: KeyboardEvent): void => {
     if (event.key.toLowerCase() === 'escape') {
       classList.remove(showModalClassName);
       removeClass(bodyModalClassName);
-      unsubscribeModal();
-      unsubscribeModal = fakeFunction;
-      unsubscribeForm();
-      unsubscribeForm = fakeFunction;
-      turnOnBodyScrolling();
+      closeModal();
     }
   };
 
@@ -82,10 +94,7 @@ export const tilesRender = ({
         Array.from($openedModals).forEach($modal => (
           $modal.classList.remove(showModalClassName)
         ));
-        unsubscribeForm();
-        unsubscribeModal();
-        unsubscribeModal = fakeFunction;
-        unsubscribeForm = fakeFunction;
+        closeModal();
       };
 
       const onClick = (): void => {
@@ -103,8 +112,16 @@ export const tilesRender = ({
           $content.scrollTo({ top: 0 });
           setTimeout(() => $content && ($content as HTMLElement).focus());
 
-          unsubscribeModal = windowEventsPublisher
+          unsubscribeModalFromWindow = windowEventsPublisher
             .subscribe('keydown', keydownCallback(classList));
+
+          unsubscribeModalFromDocument = documentEventsPublisher
+            .subscribe('backbutton', () => {
+              classList.remove(showModalClassName);
+              unsubscribeForm();
+              unsubscribeModalFromWindow();
+              resetUnsubscribes();
+            });
 
           // todo improve
           if (isForm) {
@@ -149,10 +166,10 @@ export const tilesRender = ({
             ariaDescribedBy: componentId,
             closeLabel: 'close',
             unsubscribe: () => {
-              unsubscribeModal();
-              unsubscribeModal = fakeFunction;
+              unsubscribeModalFromWindow();
+              unsubscribeModalFromDocument();
               unsubscribeForm();
-              unsubscribeForm = fakeFunction;
+              resetUnsubscribes();
             },
             turnOnBodyScrolling,
             ...otherModalProps,

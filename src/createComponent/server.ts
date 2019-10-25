@@ -9,6 +9,10 @@ const createGlobalCreateComponent = (
     global.window = {
       addEventListener: fakeFunction,
       removeEventListener: fakeFunction,
+      document: {
+        addEventListener: fakeFunction,
+        removeEventListener: fakeFunction,
+      },
     };
 
     global.document = {
