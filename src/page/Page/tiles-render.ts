@@ -26,6 +26,7 @@ export const tilesRender = ({
 
   let unsubscribeForm = fakeFunction;
   let unsubscribeEscapeKey = fakeFunction;
+  let unsubscribeBrowserBack = fakeFunction;
   let unsubscribeBackButton = fakeFunction;
 
   const buildFormKeydownListener = ($element: HTMLElement) => (
@@ -49,6 +50,7 @@ export const tilesRender = ({
   const resetUnsubscribes = (): void => {
     unsubscribeEscapeKey = fakeFunction;
     unsubscribeBackButton = fakeFunction;
+    unsubscribeBrowserBack = fakeFunction;
     unsubscribeForm = fakeFunction;
   };
 
@@ -57,6 +59,7 @@ export const tilesRender = ({
     removeClass(bodyModalClassName);
     unsubscribeEscapeKey();
     unsubscribeBackButton();
+    unsubscribeBrowserBack();
     unsubscribeForm();
     turnOnBodyScrolling();
     resetUnsubscribes();
@@ -116,6 +119,10 @@ export const tilesRender = ({
           unsubscribeEscapeKey = windowEventsPublisher
             .subscribe('keydown', keydownCallback(classList));
 
+          unsubscribeBrowserBack = windowEventsPublisher
+            .subscribe('popstate', (): void => {
+              closeModal(classList);
+            });
           unsubscribeBackButton = windowEventsPublisher
             .subscribe('navigate', (
               event,
