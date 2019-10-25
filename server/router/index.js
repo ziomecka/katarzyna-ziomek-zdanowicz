@@ -19,6 +19,10 @@ router.get('*.js', (req, res) => {
   res.sendFile(path.join(STATIC_PATH, `${ req.url }.gz`));
 });
 
+router.get('/favicon.ico', (req, res) => {
+  res.sendFile(path.join(STATIC_PATH, req.url));
+});
+
 router.get('/', (req, res) => {
   res.sendFile(HTML_PATH);
 });
