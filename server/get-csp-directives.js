@@ -22,6 +22,7 @@ const getCspDirectives = () => {
     defaultSrc: [ none ],
     fontSrc: [ ...fonts ],
     imgSrc: [ self, origin, ...images ],
+    manifestSrc: [ self, origin ],
     // todo add nonce to inline script and remove unsafe inline
     scriptSrc: [ self, origin, unsafeInline ],
     styleSrc: [ self, origin, unsafeInline ],
