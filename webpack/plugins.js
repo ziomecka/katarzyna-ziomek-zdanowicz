@@ -1,11 +1,15 @@
 import * as path from 'path';
+import {
+  isProduction,
+  outputPath,
+} from './constants';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
+import CopyPlugin from 'copy-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlExcludeAssetsPlugin from 'html-webpack-exclude-assets-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
-import { isProduction } from './constants';
 import webpack from 'webpack';
 
 const cleanWebpackPluginPatterns = [
@@ -17,6 +21,14 @@ const cleanWebpackPlugin = new CleanWebpackPlugin({
   cleanAfterEveryBuildPatterns: cleanWebpackPluginPatterns,
   verbose: true,
 });
+
+const copyPlugin = new CopyPlugin([
+  {
+    from: './src/static/favicon.ico',
+    to: outputPath,
+    flatten: true,
+  },
+]);
 
 export const extractSass = new ExtractTextPlugin(
   'index.css',
@@ -58,6 +70,7 @@ const productionPlugins = [
 
 export const plugins = [
   cleanWebpackPlugin,
+  copyPlugin,
   extractSass,
   htmlWebpackPlugin,
   htmlExcludeAssetsPlugin,
