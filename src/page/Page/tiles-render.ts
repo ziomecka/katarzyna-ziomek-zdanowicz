@@ -25,8 +25,8 @@ export const tilesRender = ({
 }): TileProps[] => {
 
   let unsubscribeForm = fakeFunction;
-  let unsubscribeModalFromWindow = fakeFunction;
-  let unsubscribeModalFromDocument = fakeFunction;
+  let unsubscribeEscapeKey = fakeFunction;
+  let unsubscribeBackButton = fakeFunction;
 
   const buildFormKeydownListener = ($element: HTMLElement) => (
     (event: KeyboardEvent): void => {
@@ -47,14 +47,14 @@ export const tilesRender = ({
   );
 
   const resetUnsubscribes = (): void => {
-    unsubscribeModalFromWindow = fakeFunction;
-    unsubscribeModalFromDocument = fakeFunction;
+    unsubscribeEscapeKey = fakeFunction;
+    unsubscribeBackButton = fakeFunction;
     unsubscribeForm = fakeFunction;
   };
 
   const closeModal = (): void => {
-    unsubscribeModalFromWindow();
-    unsubscribeModalFromDocument();
+    unsubscribeEscapeKey();
+    unsubscribeBackButton();
     unsubscribeForm();
     turnOnBodyScrolling();
     resetUnsubscribes();
@@ -112,10 +112,10 @@ export const tilesRender = ({
           $content.scrollTo({ top: 0 });
           setTimeout(() => $content && ($content as HTMLElement).focus());
 
-          unsubscribeModalFromWindow = windowEventsPublisher
+          unsubscribeEscapeKey = windowEventsPublisher
             .subscribe('keydown', keydownCallback(classList));
 
-          unsubscribeModalFromDocument = documentEventsPublisher
+          unsubscribeBackButton = documentEventsPublisher
             .subscribe('backbutton', () => {
               classList.remove(showModalClassName);
               unsubscribeForm();
@@ -166,8 +166,8 @@ export const tilesRender = ({
             ariaDescribedBy: componentId,
             closeLabel: 'close',
             unsubscribe: () => {
-              unsubscribeModalFromWindow();
-              unsubscribeModalFromDocument();
+              unsubscribeEscapeKey();
+              unsubscribeBackButton();
               unsubscribeForm();
               resetUnsubscribes();
             },
