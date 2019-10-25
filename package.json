@@ -81,5 +81,9 @@
     "rendering-recursive-client-side": "0.1.2",
     "rendering-recursive-server-side": "0.1.2",
     "uuid": "3.3.3"
+  },
+  "engines": {
+    "npm": "6.4.1",
+    "node": "10.15.3"
   }
 }
