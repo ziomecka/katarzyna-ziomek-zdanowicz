@@ -1,5 +1,6 @@
 import * as path from 'path';
 import common from './index.common.babel';
+import { copyPlugin } from './plugins';
 import { isProduction } from './constants';
 import merge from 'webpack-merge';
 
@@ -16,4 +17,5 @@ module.exports = merge(common, {
   entry: {
     server: path.resolve(__dirname, '../src/server.ts'),
   },
+  plugins: [ copyPlugin ],
 });

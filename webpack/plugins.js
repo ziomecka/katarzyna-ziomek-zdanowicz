@@ -22,7 +22,7 @@ const cleanWebpackPlugin = new CleanWebpackPlugin({
   verbose: true,
 });
 
-const copyPlugin = new CopyPlugin([
+export const copyPlugin = new CopyPlugin([
   {
     from: './src/static/favicon.ico',
     to: outputPath,
@@ -70,7 +70,6 @@ const productionPlugins = [
 
 export const plugins = [
   cleanWebpackPlugin,
-  copyPlugin,
   extractSass,
   htmlWebpackPlugin,
   htmlExcludeAssetsPlugin,
