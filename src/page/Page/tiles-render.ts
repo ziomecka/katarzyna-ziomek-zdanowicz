@@ -52,7 +52,9 @@ export const tilesRender = ({
     unsubscribeForm = fakeFunction;
   };
 
-  const closeModal = (): void => {
+  const closeModal = (classList?: ClassList): void => {
+    if (classList) classList.remove(showModalClassName);
+    removeClass(bodyModalClassName);
     unsubscribeEscapeKey();
     unsubscribeBackButton();
     unsubscribeForm();
@@ -60,13 +62,12 @@ export const tilesRender = ({
     resetUnsubscribes();
   };
 
-  const keydownCallback = (classList) => (event: KeyboardEvent): void => {
-    if (event.key.toLowerCase() === 'escape') {
-      classList.remove(showModalClassName);
-      removeClass(bodyModalClassName);
-      closeModal();
-    }
-  };
+  const keydownCallback =
+    (classList?: ClassList) => (event: KeyboardEvent): void => {
+      if (event.key.toLowerCase() === 'escape') {
+        closeModal(classList);
+      }
+    };
 
   return tilesList({ helpers: { addClass, removeClass } })
     .map(({
@@ -120,11 +121,8 @@ export const tilesRender = ({
               event,
               { state: { direction = '' } } = { state: { } }
             ) => {
-              if (direction === 'back') {
-                classList.remove(showModalClassName);
-                unsubscribeForm();
-                unsubscribeEscapeKey();
-                resetUnsubscribes();
+              if (direction == 'back') {
+                closeModal(classList);
               }
             });
 
@@ -170,12 +168,7 @@ export const tilesRender = ({
             removeClass,
             ariaDescribedBy: componentId,
             closeLabel: 'close',
-            unsubscribe: () => {
-              unsubscribeEscapeKey();
-              unsubscribeBackButton();
-              unsubscribeForm();
-              resetUnsubscribes();
-            },
+            unsubscribe: closeModal,
             turnOnBodyScrolling,
             ...otherModalProps,
           }),
@@ -183,3 +176,8 @@ export const tilesRender = ({
       };
     });
 };
+
+interface ClassList {
+  remove(className: string): void;
+  add(className: string): void;
+}
