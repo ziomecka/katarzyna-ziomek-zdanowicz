@@ -18,6 +18,7 @@ export const tilesRender = ({
   helpers: {
     controlBodyClassList: { addClass, removeClass },
     controlBodyScroll: { turnOnBodyScrolling, turnOffBodyScrolling },
+    documentEventsPublisher,
     windowEventsPublisher,
     loopThroughChildren,
   },
@@ -25,6 +26,7 @@ export const tilesRender = ({
 
   let unsubscribeForm = fakeFunction;
   let unsubscribeModalFromWindow = fakeFunction;
+  let unsubscribeModalFromDocument = fakeFunction;
 
   const buildFormKeydownListener = ($element: HTMLElement) => (
     (event: KeyboardEvent): void => {
@@ -46,11 +48,13 @@ export const tilesRender = ({
 
   const resetUnsubscribes = (): void => {
     unsubscribeModalFromWindow = fakeFunction;
+    unsubscribeModalFromDocument = fakeFunction;
     unsubscribeForm = fakeFunction;
   };
 
   const closeModal = (): void => {
     unsubscribeModalFromWindow();
+    unsubscribeModalFromDocument();
     unsubscribeForm();
     turnOnBodyScrolling();
     resetUnsubscribes();
@@ -111,6 +115,14 @@ export const tilesRender = ({
           unsubscribeModalFromWindow = windowEventsPublisher
             .subscribe('keydown', keydownCallback(classList));
 
+          unsubscribeModalFromDocument = documentEventsPublisher
+            .subscribe('backbutton', () => {
+              classList.remove(showModalClassName);
+              unsubscribeForm();
+              unsubscribeModalFromWindow();
+              resetUnsubscribes();
+            });
+
           // todo improve
           if (isForm) {
             document.getElementById('name-input').focus();
@@ -155,6 +167,7 @@ export const tilesRender = ({
             closeLabel: 'close',
             unsubscribe: () => {
               unsubscribeModalFromWindow();
+              unsubscribeModalFromDocument();
               unsubscribeForm();
               resetUnsubscribes();
             },

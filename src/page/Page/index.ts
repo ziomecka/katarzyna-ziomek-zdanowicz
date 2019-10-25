@@ -20,6 +20,7 @@ export const Page: ComponentFunction = ({
   helpers: {
     controlBodyClassList,
     controlBodyScroll,
+    documentEventsPublisher,
     windowEventsPublisher,
     loopThroughChildren,
   },
@@ -60,6 +61,7 @@ export const Page: ComponentFunction = ({
             items: tilesRender({ helpers: {
               controlBodyClassList,
               controlBodyScroll,
+              documentEventsPublisher,
               windowEventsPublisher,
               loopThroughChildren,
             } }),
