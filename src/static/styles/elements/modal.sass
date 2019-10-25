@@ -10,13 +10,17 @@ $xs-margin-close-button: .4rem
 $sm-margin-close-button: .4rem
 
 .modal-action
-  position: absolute
-  top: 0
-  height: calc(2 * #{$lg-spacing})
-  width: 100%
+  height: 0
+  overflow: hidden
+  @media(min-width: $sm-media)
+    position: absolute
+    top: 0
+    height: calc(2 * #{$lg-spacing})
+    width: 100%
 
 .modal-padding--top
-  padding-top: calc(2 * #{$lg-spacing})
+  @media(min-width: $sm-media)
+    padding-top: calc(2 * #{$lg-spacing})
 
 .modal-content
   overflow-y: auto
