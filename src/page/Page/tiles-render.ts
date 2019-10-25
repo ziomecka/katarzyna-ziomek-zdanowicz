@@ -115,12 +115,17 @@ export const tilesRender = ({
           unsubscribeEscapeKey = windowEventsPublisher
             .subscribe('keydown', keydownCallback(classList));
 
-          unsubscribeBackButton = documentEventsPublisher
-            .subscribe('backbutton', () => {
-              classList.remove(showModalClassName);
-              unsubscribeForm();
-              unsubscribeModalFromWindow();
-              resetUnsubscribes();
+          unsubscribeBackButton = windowEventsPublisher
+            .subscribe('navigate', (
+              event,
+              { state: { direction = '' } } = { state: { } }
+            ) => {
+              if (direction === 'back') {
+                classList.remove(showModalClassName);
+                unsubscribeForm();
+                unsubscribeEscapeKey();
+                resetUnsubscribes();
+              }
             });
 
           // todo improve
