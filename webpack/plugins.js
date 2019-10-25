@@ -24,8 +24,8 @@ const cleanWebpackPlugin = new CleanWebpackPlugin({
 
 export const copyPlugin = new CopyPlugin([
   {
-    from: './src/static/favicon.ico',
-    to: outputPath,
+    from: './src/static/favicon/*',
+    to: path.join(outputPath, '/favicon/'),
     flatten: true,
   },
 ]);
