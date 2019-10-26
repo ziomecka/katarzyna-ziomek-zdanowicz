@@ -18,5 +18,5 @@ export const Link: ComponentFunction<LinkProps> =
 };
 
 interface LinkProps {
-  attributes?: LinkAttributes & Record<string, string | boolean>;
+  attributes?: LinkAttributes & Record<string, string | boolean | number>;
 }
