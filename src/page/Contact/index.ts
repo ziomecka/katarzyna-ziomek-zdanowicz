@@ -131,7 +131,6 @@ export const Contact: ComponentFunction<ContactProps> = ({
                         onFocus: addBodyFormClassName,
                         onInput: (event: KeyboardEvent): void => {
                           changeEmail((event.target as HTMLInputElement).value);
-                          addBodyFormClassName();
                         },
                         onBlur: removeBodyFormClassName,
                       },
