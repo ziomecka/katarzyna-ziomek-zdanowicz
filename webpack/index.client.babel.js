@@ -23,6 +23,7 @@ module.exports = merge(common, {
         use: extractSass.extract({
           use: [
             'css-loader',
+            'postcss-loader',
             'sass-loader',
           ],
         }),
