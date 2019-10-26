@@ -1,5 +1,7 @@
-import { Box } from './';
-import { InputLabel } from './InputLabel';
+import {
+  Box,
+  InputLabel,
+} from './';
 
 const defaultType = 'text';
 

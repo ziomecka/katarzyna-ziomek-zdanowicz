@@ -8,6 +8,7 @@ export { Heading } from './Heading';
 export { IconButton } from './IconButton';
 export { IconLink } from './IconLink';
 export { Input } from './Input';
+export { InputLabel } from './InputLabel';
 export { Link } from './Link';
 export { List } from './List';
 export {
