@@ -51,21 +51,17 @@ export const Input: ComponentFunction<InputProps> = (
       : InputComponent({ tabIndex, autoFocus });
   });
 
-interface InputProps extends InputAttributes {
+interface InputProps {
   label?: string;
+  attributes: InputAttributes;
 }
 
-interface InputAttributes {
-  type?: InputType;
-  id?: string;
-  placeholder?: string;
-  alt?: string;
-  required?: boolean;
-}
-
-export const enum InputType {
-  text = 'text',
-  password = 'password',
-  file = 'file',
-  image = 'image',
-}
+interface InputAttributes extends
+  ElementAttributes,
+  Record<string, number | string | boolean> {
+    type?: InputType;
+    placeholder?: string;
+    alt?: string;
+    required?: boolean;
+    pattern?: string;
+  }
