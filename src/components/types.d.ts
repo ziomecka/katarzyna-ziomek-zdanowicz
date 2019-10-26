@@ -29,6 +29,8 @@ declare type LinkAttributes = ElementAttributes & {
 declare type ElementAttributes = {
   id?: string;
   title?: string;
+  tabIndex?: number;
+  autoFocus?: boolean;
   'aria-hidden'?: boolean;
 };
 
