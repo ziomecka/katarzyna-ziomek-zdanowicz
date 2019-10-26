@@ -8,15 +8,15 @@ const isValid = (email, regExp) => (
 );
 
 const handler = async ({ query }, res, next) => {
-  const { email, name } = query;
+  const { email, name, message } = query;
 
   if (isValid(email, emailRegexp) && isValid(name, nameRegexp)) {
     try {
       await sendEmail({
         from: email,
         to: 'kasia@zdanowicz.org.pl',
-        subject: `Contact: ${ name }, ${ email }`,
-        text: 'Some email arrived',
+        subject: `Contact from: ${ name }, ${ email }`,
+        text: message,
       });
       res.send({ result: true });
     } catch (err) {
