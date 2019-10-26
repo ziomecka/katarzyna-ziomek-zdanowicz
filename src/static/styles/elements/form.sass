@@ -54,6 +54,8 @@ input, textarea
     bottom: 1px
     line-height: $lg-spacing
     background: #ffffff
-  &--required
+
+input[required=true], textarea[required=true]
+  ~ .label
     &:after
       content: "*"
