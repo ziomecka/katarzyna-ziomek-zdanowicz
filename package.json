@@ -80,6 +80,7 @@
     "express": "4.16.4",
     "helmet": "3.15.1",
     "helmet-csp": "2.7.1",
+    "html-minify": "0.3.2",
     "lodash.throttle": "4.1.1",
     "node-fetch": "2.6.0",
     "publisher-subscriber": "1.0.12",
