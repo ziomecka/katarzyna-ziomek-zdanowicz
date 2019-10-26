@@ -15,6 +15,7 @@ export {
   Modal,
   ModalProps,
 } from './Modal';
+export { Textarea } from './Textarea';
 export {
   Tile,
   TileProps,
