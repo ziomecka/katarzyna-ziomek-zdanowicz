@@ -4,6 +4,7 @@ import {
   Content,
   Form,
   Input,
+  Textarea,
   Typography,
   TypographyVariant,
 } from '../../components';
@@ -19,6 +20,7 @@ import { setStateHook } from '../../common';
 
 const nameId = 'name-input';
 const emailId = 'email-input';
+const messageId = 'message-textarea';
 const modalShowClassName = 'modal--show';
 const buttonHighlightClassName = 'button-highlight';
 const bodyModalClassName = 'body--modal';
@@ -34,10 +36,11 @@ export const Contact: ComponentFunction<ContactProps> = ({
   HeadingProps = {},
 }) => {
   const {
-    farewellHeading,
-    nameLabel,
     emailLabel,
+    farewellHeading,
     heading,
+    messageLabel,
+    nameLabel,
   } = content;
 
   const flex = {
@@ -47,6 +50,7 @@ export const Contact: ComponentFunction<ContactProps> = ({
 
   const [ name, changeName ] = setStateHook('');
   const [ email, changeEmail ] = setStateHook('');
+  const [ message, changeMessage ] = setStateHook('');
 
   const isValidForm = (): boolean => (
     isValid(name(), nameRegExp) &&
@@ -59,7 +63,7 @@ export const Contact: ComponentFunction<ContactProps> = ({
 
   const onClick = async (): Promise<void> => {
     if (isValidForm()) {
-      const apiResult = await onClickHandler(name(), email());
+      const apiResult = await onClickHandler(name(), email(), message());
 
       if (apiResult) {
         (document.querySelector(`input#${ nameId }`) as HTMLInputElement)
@@ -131,6 +135,24 @@ export const Contact: ComponentFunction<ContactProps> = ({
                         onFocus: addBodyFormClassName,
                         onInput: (event: KeyboardEvent): void => {
                           changeEmail((event.target as HTMLInputElement).value);
+                        },
+                        onBlur: removeBodyFormClassName,
+                      },
+                    }),
+                    Textarea({
+                      label: messageLabel,
+                      placeholder: messageLabel,
+                      id: messageId,
+                      attributes: {
+                        tabIndex: 2,
+                        Rows: 1,
+                      },
+                      eventHandlers: {
+                        onFocus: addBodyFormClassName,
+                        onInput: (event: KeyboardEvent): void => {
+                          changeMessage(
+                            (event.target as HTMLTextAreaElement).value
+                          );
                         },
                         onBlur: removeBodyFormClassName,
                       },
