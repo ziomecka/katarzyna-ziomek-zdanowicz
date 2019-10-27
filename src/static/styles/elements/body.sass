@@ -1,9 +1,11 @@
 $multi: 1.5
+$xs-bottom: -#{$xs-footer-height * $multi}
+$sm-bottom: -#{$sm-footer-height * $multi}
 
 .body--modal footer
-  bottom: -$xs-footer-height * $multi
+  bottom: #{$xs-bottom}px
   @media(min-width: $sm-media)
-    bottom: -$sm-footer-height * $multi
+    bottom: #{$sm-bottom}px
   @media(min-width: $md-media)
     position: fixed
     bottom: 0
