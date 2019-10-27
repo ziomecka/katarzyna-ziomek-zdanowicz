@@ -7,7 +7,7 @@ export const rules = [
     ],
   },
   {
-    test: /\.(jpg|woff|woff2)$/,
+    test: /\.(jpg|woff|woff2|ttf)$/,
     use: [
       {
         loader: 'file-loader',
