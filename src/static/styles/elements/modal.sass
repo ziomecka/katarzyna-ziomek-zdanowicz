@@ -7,22 +7,13 @@ $xs-margin-close-button: .4rem
 $sm-margin-close-button: .4rem
 
 .modal-action
-  height: 0
-  overflow: hidden
-  @media(min-width: $sm-media)
-    position: absolute
-    top: 0
-    height: calc(2 * #{$lg-spacing})
-    width: 100%
-
-.modal-padding
-  padding: $md-spacing 0
-  @media(min-width: $sm-media)
-    padding: 0
+  position: absolute
+  top: 0
+  height: calc(2 * #{$lg-spacing})
+  width: 100%
 
 .modal-padding--top
-  @media(min-width: $sm-media)
-    padding-top: calc(2 * #{$lg-spacing})
+  padding-top: calc(2 * #{$lg-spacing})
 
 .modal-content
   overflow-y: auto
@@ -82,8 +73,7 @@ $modal-padding-bottom: $md-spacing
   .content
     width: 100%
     min-height: auto
-    @media(min-width: $sm-media)
-      padding-bottom: $modal-padding-bottom
+    padding-bottom: $modal-padding-bottom
   @media(min-width: $md-media)
     border: $regular-border solid $border-color
 
@@ -108,7 +98,6 @@ $modal-padding-bottom: $md-spacing
   @extend .modal--size
   @extend .modal--position
   @extend .modal--box
-  @extend .modal-padding
   @extend .modal-padding--top
   &-story
     @extend .story--dots
