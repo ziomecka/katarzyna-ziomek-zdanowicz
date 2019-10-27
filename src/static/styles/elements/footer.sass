@@ -32,6 +32,8 @@ $animation-duration: .2s
   @media(min-width: $lg-media)
     height: $lg-footer-height
 
+$opacity-footer: 1
+
 .footer-background
   color: $background-color
   background-color: $text-color
@@ -46,12 +48,12 @@ $animation-duration: .2s
       width: 100%
       top: 0
       left: 0
-      opacity: .1
+      opacity: 0
       transition: opacity $animation-duration
     &:hover
       color: $text-color
       &:before
-        opacity: .7
+        opacity: $opacity-footer
 
 footer
   @extend .footer-position
