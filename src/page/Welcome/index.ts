@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import {
   Box,
   Header,
@@ -7,6 +8,9 @@ import {
 } from '../../components/';
 import { IconLinkProps } from '../../components/IconLink';
 import { expandMoreDoubleIcon } from '../_constants';
+
+const headingSVG = require('../../static/icons/heading.svg');
+const shadowSVG = require('../../static/icons/shadow.svg');
 
 export const Welcome: ComponentFunction<WelcomeProps> = ({
   heading = '',
@@ -31,9 +35,10 @@ export const Welcome: ComponentFunction<WelcomeProps> = ({
       zIndex: 2,
     },
     children: [
+      shadowSVG,
       Heading({
         variant: headingVariant,
-        value: heading,
+        children: [ headingSVG ],
       }),
       Box({
         flex: {
