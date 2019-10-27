@@ -27,7 +27,7 @@ export const tilesRender = ({
   let unsubscribeForm = fakeFunction;
   let unsubscribeEscapeKey = fakeFunction;
   let unsubscribeBrowserBack = fakeFunction;
-  let unsubscribeBackButton = fakeFunction;
+  let unsubscribeNavigate = fakeFunction;
 
   const buildFormKeydownListener = ($element: HTMLElement) => (
     (event: KeyboardEvent): void => {
@@ -49,7 +49,7 @@ export const tilesRender = ({
 
   const resetUnsubscribes = (): void => {
     unsubscribeEscapeKey = fakeFunction;
-    unsubscribeBackButton = fakeFunction;
+    unsubscribeNavigate = fakeFunction;
     unsubscribeBrowserBack = fakeFunction;
     unsubscribeForm = fakeFunction;
   };
@@ -58,7 +58,7 @@ export const tilesRender = ({
     if (classList) classList.remove(showModalClassName);
     removeClass(bodyModalClassName);
     unsubscribeEscapeKey();
-    unsubscribeBackButton();
+    unsubscribeNavigate();
     unsubscribeBrowserBack();
     unsubscribeForm();
     turnOnBodyScrolling();
@@ -123,7 +123,7 @@ export const tilesRender = ({
             .subscribe('popstate', (): void => {
               closeModal(classList);
             });
-          unsubscribeBackButton = windowEventsPublisher
+          unsubscribeNavigate = windowEventsPublisher
             .subscribe('navigate', (
               event,
               { state: { direction = '' } } = { state: { } }
