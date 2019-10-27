@@ -16,5 +16,3 @@ export const expandMoreDoubleIcon =
 export const cvHref = 'https://drive.google.com/uc?export=download&id=1cjWU2dPevA7w56ECJd8JknfLeqtnp_7e'; // eslint-disable-line
 
 export const tag = 'section';
-export const upButtonId = 'button-navigation-up';
-export const downButtonId = 'button-navigation-down';
