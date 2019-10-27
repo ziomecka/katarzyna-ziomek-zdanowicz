@@ -44,24 +44,29 @@ h1, h2, h3
   text-align: center
   white-space: pre-wrap
 
+#heading
+  width: 100%
+  height: auto
+  path
+    fill: $background-color
+
+$sm-h1-width: 800
+$md-h1-width: 900
+
 h1
+  width: 100%
   margin: 0
-  font-size: $xs-h1-font-size
-  font-family: 'HammersmithOne', 'Open-Sans', sans-serif
-  font-weight: 400
-  line-height: 1.1em
-  letter-spacing: 1px
-  text-transform: uppercase
-  word-break: break-word
-  opacity: 1
-  color: $background-color
   @media(min-width: $sm-media)
-    font-size: $sm-h1-font-size
-    color: $text-color
+    max-width: $sm-h1-width
   @media(min-width: $md-media)
-    font-size: $md-h1-font-size
-  @media(min-width: $lg-media)
-    font-size: $lg-h1-font-size
+    max-width: $md-h1-width
+
+// $shadow-h1-1: #2e2e2e
+// $shadow-h1-2: #3d3d3d
+// $shadow-h1-3: #4c4c4c
+// $shadow-h1-4: #5c5c5c
+// $shadow-h1-5: #6b6b6b
+// text-shadow: 0 1px 0 #{$shadow-h1-1}, 0 2px 0 #{$shadow-h1-2}, 0 3px 0 #{$shadow-h1-3}, 0 4px 0 #{$shadow-h1-4}, 0 5px 0 #{$shadow-h1-5}, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15)
 
 h2
   margin: 0
