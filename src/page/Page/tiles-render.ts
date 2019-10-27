@@ -129,6 +129,7 @@ export const tilesRender = ({
               { state: { direction = '' } } = { state: { } }
             ) => {
               if (direction == 'back') {
+                event.preventDefault();
                 closeModal(classList);
               }
             });
