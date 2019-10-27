@@ -26,7 +26,7 @@
 @mixin typography-width
   width: 80%
   @media(min-width: $sm-media)
-    max-width: $typography-width
+    max-width: #{$typography-width}px
 
 $scrollbar-color: $grey-color // todo darker
 
@@ -34,7 +34,7 @@ $scrollbar-color: $grey-color // todo darker
   overflow-y: scroll
   &::-webkit-scrollbar
     background-color: $background-color
-    width: $scrollbar-width
+    width: #{$scrollbar-width}px
   &::-webkit-scrollbar-thumb
     background-color: $scrollbar-color
 

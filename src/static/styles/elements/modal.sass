@@ -34,7 +34,7 @@ $sm-margin-close-button: .4rem
   @media(min-width: $md-media)
     height: calc(100vh - 2 * #{$margin-modal})
     max-width: 80%
-    width: $modal-width
+    width: #{$modal-width}px
 
 .modal--position
   position: fixed
@@ -44,7 +44,7 @@ $sm-margin-close-button: .4rem
     top: -100vh
     @include absolute-center--x
 
-$close-button-width: 100px
+$close-button-width: 100
 
 .button-icon--description
   &:before
@@ -56,7 +56,7 @@ $close-button-width: 100px
     position: absolute
     right: $md-spacing
     @include absolute-center--y
-    width: $close-button-width
+    width: #{$close-button-width}px
     font-weight: 400
     text-transform: uppercase
     @media(min-width: $md-media)

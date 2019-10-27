@@ -6,15 +6,15 @@
 header .button-icon svg
   fill: $highlight-primary-color
 
-$xs-socialmedia-width: 100px
-$sm-socialmedia-width: 150px
-$md-socialmedia-width: 190px
+$xs-socialmedia-width: 100
+$sm-socialmedia-width: 150
+$md-socialmedia-width: 190
 
 .socialmedia
-  max-width: $xs-socialmedia-width
+  max-width: #{$xs-socialmedia-width}px
   @media(min-width: $sm-media)
-    max-width: $sm-socialmedia-width
+    max-width: #{$sm-socialmedia-width}px
   @media(min-width: $md-media)
-    max-width: $md-socialmedia-width
+    max-width: #{$md-socialmedia-width}px
   path
     fill: $highlight-icon
