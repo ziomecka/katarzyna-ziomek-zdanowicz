@@ -47,6 +47,7 @@ $sm-margin-close-button: .4rem
     top: -100vh
     @include absolute-center--x
 
+$close-button-width: 100px
 
 .button-icon--description
   &:before
@@ -58,7 +59,7 @@ $sm-margin-close-button: .4rem
     position: absolute
     right: $md-spacing
     @include absolute-center--y
-    width: 100
+    width: $close-button-width
     font-weight: 400
     text-transform: uppercase
     @media(min-width: $md-media)
