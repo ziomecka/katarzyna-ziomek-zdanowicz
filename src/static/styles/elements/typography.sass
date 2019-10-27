@@ -13,6 +13,10 @@ $lg-h1-font-size: 3rem
   font-family: 'Lato'
   src: url('../fonts/Lato/lato-regular-webfont.woff2') format('woff2'), url('../fonts/Lato/lato-regular-webfont.woff') format('woff'), url('../fonts/Lato/lato-regular.ttf') format('ttf')
 
+html
+  font-family: 'Lato', 'Open-Sans', sans-serif
+  color: $text-color
+
 html, .tile h2, .tile h3
   font-size: $xs-font-size
   @media(min-width: $sm-media)
@@ -26,8 +30,6 @@ html, .tile h2, .tile h3
     letter-spacing: 1px
 
 body, h3, input
-  font-family: 'Lato', 'Open-Sans', sans-serif
-  color: $text-color
   line-height: 1.5em
   font-weight: 500
 
@@ -68,9 +70,6 @@ h2
   margin: 0
   line-height: 1.3em
   font-weight: 800
-
-.tile > h2
-  font-family: 'Lato', 'Open-Sans', sans-serif
 
 a
   &:hover
