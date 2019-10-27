@@ -24,13 +24,13 @@ $animation-duration: .2s
 
 .footer-size
   width: 100%
-  height: $xs-footer-height
+  height: #{$xs-footer-height}px
   @media(min-width: $sm-media)
-    height: $sm-footer-height
+    height: #{$sm-footer-height}px
   @media(min-width: $md-media)
-    height: $md-footer-height
+    height: #{$md-footer-height}px
   @media(min-width: $lg-media)
-    height: $lg-footer-height
+    height: #{$lg-footer-height}px
 
 $opacity-footer: 1
 
@@ -38,8 +38,7 @@ $opacity-footer: 1
   color: $background-color
   background-color: $text-color
   @media(min-width: $sm-media)
-    background-color: $background-color
-  @media(min-width: $md-media)
+    background-color: transparent
     &:before
       content: ''
       background-color: $background-color
@@ -65,7 +64,6 @@ footer
   z-index: 20
   @media(min-width: $md-media)
     padding: $sm-spacing $md-spacing $xs-spacing
-    background-color: transparent
     z-index: 0
   & div.box, p
     margin: 0
