@@ -25,25 +25,21 @@
 $margin: $sm-spacing
 $margins: $margin * 2
 
-$xs-basis: 90%
-$sm-basis: 50%
-$md-basis: 33%
-$lg-basis: 33%
-
-$xs-height: 100vh / 6
-$sm-height: 100vh / 3
-$md-height: 100vh / 2.5
-$lg-height: 100vh / 2.5
-
 $xs-padding: 6%
 $sm-padding: 6%
-$md-padding: 2%
-$lg-padding: 5%
 
 .tile-margin
   margin: $margin 0
   @media(min-width: $sm-media)
     margin: $margin
+
+$xs-basis: 90%
+$md-basis: 50%
+
+$xs-height: 100vh / 6
+$sm-height: 100vh / 3
+$md-height: 100vh / 2.5
+$lg-height: 100vh / 2.5
 
 .tile-flex
   width: $xs-basis
@@ -54,16 +50,11 @@ $lg-padding: 5%
     flex: 0 0 calc(#{$md-basis}  - #{$margins})
   @media(min-width: $lg-media)
     min-height: calc(#{$lg-height} - #{$margins})
-    flex: 0 0 calc(#{$lg-basis}  - #{$margins})
 
 .tile-padding
   padding: 0 $xs-padding
-  @media(min-width: $sm-media)
-    padding: 0 $sm-padding
   @media(min-width: $md-media)
-    padding: 0 $md-padding
-  @media(min-width: $lg-media)
-    padding: 0 $lg-padding
+    padding: 0
 
 $tile-text-width: 70%
 
