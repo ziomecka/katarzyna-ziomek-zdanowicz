@@ -31,7 +31,7 @@ export const copyPlugin = new CopyPlugin([
 ]);
 
 export const extractSass = new ExtractTextPlugin(
-  'index.css',
+  '[name].[hash].css',
   { allChunks: true },
 );
 
