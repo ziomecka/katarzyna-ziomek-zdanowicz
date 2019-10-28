@@ -10,7 +10,7 @@ export const TileList: ComponentFunction<TileListProps> = (
     return createComponent({
       HTMLTag: 'ul',
       flex: {
-        justifyContent: 'flex-start',
+        justifyContent: 'center',
         flexDirection: 'column',
         alignItems: 'center',
         flexWrap: 'wrap',

@@ -1,8 +1,13 @@
 ul
   padding-left: 0
 
+$width: 1200
+
 ul.list-tiles
   width: 100%
+  max-width: #{$width}px
+  margin-left: auto
+  margin-right: auto
   @media(min-width: $md-media)
     flex-direction: row!important
 
