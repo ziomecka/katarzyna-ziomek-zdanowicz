@@ -11,12 +11,14 @@ $sm-margin-close-button: .4rem
   top: 0
   height: calc(2 * #{$lg-spacing})
   width: 100%
+  background: transparent
 
 .modal-padding--top
   padding-top: calc(2 * #{$lg-spacing})
 
 .modal-content
   overflow-y: auto
+  min-height: 100%
   height: calc(100% - #{$xs-spacing})
 
 .modal--size
@@ -35,23 +37,24 @@ $sm-margin-close-button: .4rem
     top: -100vh
     @include absolute-center--x
 
-$close-button-width: 100
+$top: percentage(10.5 / 18 / 2)
 
 .button-icon--description
+  margin: 0
+  font-size: .8em
+  line-height: 1em
+  @media(min-width: $md-media)
+    font-size: .9em
   &:before
-    display: inline-flex
-    height: 100%
-    align-items: center
-    justify-content: flex-end
     content: attr(data-label)
     position: absolute
-    right: $md-spacing
-    @include absolute-center--y
-    width: #{$close-button-width}px
+    right: 100%
+    margin-right: $xs-spacing
+    word-break: initial
+    top: 50% - $top
     font-weight: 400
     text-transform: uppercase
-    @media(min-width: $md-media)
-      margin-right: $sm-spacing
+    letter-spacing: 0
 
 .modal .button-icon
   position: relative
