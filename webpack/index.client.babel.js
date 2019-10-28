@@ -10,7 +10,7 @@ import { outputPath } from './constants';
 module.exports = merge(common, {
   output: {
     path: outputPath,
-    filename: '[name].js',
+    filename: '[name].[hash].js',
   },
   entry: {
     client: path.resolve(__dirname, '../src/client.ts'),
