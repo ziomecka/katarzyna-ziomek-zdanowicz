@@ -88,6 +88,7 @@ export const Modal: ComponentFunction<ModalProps> = ({
         children: [
           (heading || children.length) && Box({
             flex,
+            style: { minHeight: '100%'},
             children: [
               heading && Heading({
                 value: heading,
