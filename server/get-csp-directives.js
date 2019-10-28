@@ -3,7 +3,6 @@ const getCspDirectives = () => {
   const origin = process.NODE_ENV === 'production'
     ? 'https://katarzyna-ziomek-zdanowicz.com*'
     : 'http://localhost:3000/*';
-  const none = "'none'";
   const self = "'self'";
   const unsafeInline = "'unsafe-inline'";
   const images = [
@@ -18,8 +17,8 @@ const getCspDirectives = () => {
   ];
 
   return {
+    defaultSrc: [ self ],
     connectSrc: [ self, origin ],
-    defaultSrc: [ none ],
     fontSrc: [ ...fonts ],
     imgSrc: [ self, origin, ...images ],
     manifestSrc: [ self, origin ],
