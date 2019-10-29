@@ -47,6 +47,10 @@ export const Contact: ComponentFunction<ContactProps> = ({
     alignItems: 'center',
   } as Flex;
 
+  const nameSelector = `input#${ nameId }`;
+  const emailSelector = `input#${ emailId }`;
+  const messageSelector = `textarea#${ messageId }`;
+
   const [ name, changeName ] = controlInternalState('');
   const [ email, changeEmail ] = controlInternalState('');
   const [ message, changeMessage ] = controlInternalState('');
@@ -66,9 +70,11 @@ export const Contact: ComponentFunction<ContactProps> = ({
       const apiResult = await onClickHandler(name(), email(), message());
 
       if (apiResult) {
-        (document.querySelector(`input#${ nameId }`) as HTMLInputElement)
+        (document.querySelector(nameSelector) as HTMLInputElement)
           .value = '';
-        (document.querySelector(`input#${ emailId }`) as HTMLInputElement)
+        (document.querySelector(emailSelector) as HTMLInputElement)
+          .value = '';
+        (document.querySelector(messageSelector) as HTMLInputElement)
           .value = '';
         removeBodyClass(bodyModalClassName);
       }
