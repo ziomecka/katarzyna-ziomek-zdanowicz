@@ -5,7 +5,7 @@ declare global {
   namespace NodeJS {
     export interface Global {
       createComponent({ ...args }: Partial<ComponentProps>): string;
-      helpers: import('../library/common/build-component-helpers/types').Helpers;
+      helpers: object;
       window: object;
       document: object;
     }
