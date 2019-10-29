@@ -96,16 +96,20 @@ export const tilesList: TilesList = ({ helpers }) => {
 
   const contactTile: MappedProps = {
     id: contactId,
-    Component: ({ modalId, attributes = {} } = {}): string => (
+    Component: ({
+      modalId,
+      closeModal,
+      attributes = {}
+    }: MappedComponent = {}): string => (
       Contact({
         content: contact,
         attributes: { id: contactId, ...attributes },
         helpers,
-        modalId,
         HeadingProps: {
           heading: contact.heading,
           attributes: { id: buildHeadingId`${ contactId }` },
         },
+        closeModal: () => closeModal({ modalId }),
       })
     ),
     isForm: true,

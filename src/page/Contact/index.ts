@@ -31,7 +31,7 @@ export const Contact: ComponentFunction<ContactProps> = ({
   classNames,
   children = [],
   helpers: { addBodyClass, removeBodyClass, controlInternalState },
-  modalId,
+  closeModal = () => {},
   HeadingProps = {},
 }) => {
   const {
@@ -100,9 +100,7 @@ export const Contact: ComponentFunction<ContactProps> = ({
                   eventHandlers: {
                     onSubmit: (): void => {
                       if (isValidForm()) {
-                        document
-                          .getElementById(modalId)
-                          .classList.remove(modalShowClassName);
+                        closeModal();
                       }
                     },
                   },
@@ -197,5 +195,6 @@ interface ContactProps {
   };
   modalId: string;
   unsubscribeForm?: () => void;
+  closeModal?: () => void;
   HeadingProps: Partial<ComponentProps> & { heading: string };
 }
