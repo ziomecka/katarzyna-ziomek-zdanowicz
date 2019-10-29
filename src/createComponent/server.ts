@@ -22,12 +22,12 @@ const createGlobalCreateComponent = (
       getElementsByTagName: fakeFunction,
     };
 
-    const {
-      createComponent,
-      helpers,
-    } = await buildCreateComponent({ classNames, options });
+    const { helpers } = await buildCreateComponent({
+      inject: { classNames },
+      options,
+      global: { createComponent: true },
+    });
 
-    global.createComponent = createComponent;
     return { helpers };
   }
 );

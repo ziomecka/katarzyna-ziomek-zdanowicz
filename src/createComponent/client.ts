@@ -7,4 +7,8 @@ const { options } = require('./common');
 const { buildCreateComponent }
   = require('render-it-client');
 
-module.exports = buildCreateComponent({ classNames, options });
+module.exports = buildCreateComponent({
+  inject: { classNames },
+  options,
+  globals: { createComponent: true },
+});
