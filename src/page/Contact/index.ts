@@ -109,9 +109,9 @@ export const Contact: ComponentFunction<ContactProps> = ({
                   FormComponents: [
                     Input({
                       label: nameLabel,
-                      placeholder: nameLabel,
-                      id: nameId,
                       attributes: {
+                        placeholder: nameLabel,
+                        id: nameId,
                         tabIndex: 0,
                         pattern: nameRegExp,
                       },
@@ -125,9 +125,9 @@ export const Contact: ComponentFunction<ContactProps> = ({
                     }),
                     Input({
                       label: emailLabel,
-                      placeholder: emailLabel,
-                      id: emailId,
                       attributes: {
+                        placeholder: emailLabel,
+                        id: emailId,
                         tabIndex: 1,
                         pattern: emailRegExp,
                       },
@@ -141,9 +141,9 @@ export const Contact: ComponentFunction<ContactProps> = ({
                     }),
                     Textarea({
                       label: messageLabel,
-                      placeholder: messageLabel,
-                      id: messageId,
                       attributes: {
+                        placeholder: messageLabel,
+                        id: messageId,
                         tabIndex: 2,
                         Rows: 1,
                       },
