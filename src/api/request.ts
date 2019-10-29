@@ -1,4 +1,7 @@
-import { ApiResponse } from './types';
+import {
+  ApiResponse,
+  Query,
+} from './types';
 import { buildUrl } from './build-url';
 import fetch from 'node-fetch';
 
@@ -18,7 +21,7 @@ export const request = async ({
 
 interface RequestProps {
   url: string;
-  query?: Record<string, string | number>;
+  query?: Query;
   method?: 'GET' | 'POST';
   credentials?: 'include';
 }
