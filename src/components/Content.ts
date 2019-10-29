@@ -18,7 +18,7 @@ const buildPropsGetter = (
 export const Content: ComponentFunction<ContentProps> = (
   ({
     HTMLTag = defaultHtmlTag,
-    attributes: { tabIndex = undefined, ...otherAttributes } = {},
+    attributes: { tabIndex = 0, ...otherAttributes } = {},
     content = '',
     contentInnerHTML = true,
     className,
@@ -72,7 +72,7 @@ export const Content: ComponentFunction<ContentProps> = (
       HTMLTag,
       className,
       attributes: {
-        tabIndex: tabIndex || !captureFocus || -1,
+        tabIndex: (captureFocus && -1) || tabIndex,
         ...otherAttributes,
       },
       ...otherProps,

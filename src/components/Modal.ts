@@ -14,7 +14,7 @@ const bodyModalClassName = 'body--modal';
 
 // todo add box props
 export const Modal: ComponentFunction<ModalProps> = ({
-  attributes: { id, ...otherAttributes },
+  attributes: { id, tabIndex = 0, ...otherAttributes },
   className,
   closeLabel = '',
   eventHandlers = {},
@@ -45,8 +45,6 @@ export const Modal: ComponentFunction<ModalProps> = ({
     turnOnBodyScrolling();
   };
 
-  const tabIndex = !captureFocus || -1;
-
   return Box({
     className: className
       ? `${ modalClassName } ${ className }`
@@ -56,7 +54,6 @@ export const Modal: ComponentFunction<ModalProps> = ({
       'aria-modal': true,
       'aria-labelledby': ariaLabelledBy || headingAttributes.id,
       'aria-describedby':  ariaDescribedBy || contentAttributes.id || '',
-      // tabIndex,
       id,
       ...otherAttributes,
     },
@@ -88,7 +85,7 @@ export const Modal: ComponentFunction<ModalProps> = ({
         children: [
           (heading || children.length) && Box({
             flex,
-            style: { minHeight: '100%'},
+            style: { minHeight: '100%' },
             children: [
               heading && Heading({
                 value: heading,
@@ -99,7 +96,7 @@ export const Modal: ComponentFunction<ModalProps> = ({
               ...children,
             ],
             attributes: {
-              tabIndex,
+              tabIndex: (captureFocus && -1) || tabIndex,
               ...contentAttributes,
             },
             ...otherContentProps,
