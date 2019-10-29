@@ -132,7 +132,7 @@ type MappedProps = {
     heading?: string;
     attributes?: Partial<HTMLElementAttributes>;
   };
-  Component: ComponentFunction;
+  Component: ComponentFunction<{ heading?: string }>;
   id: string;
   isForm?: boolean;
 };
