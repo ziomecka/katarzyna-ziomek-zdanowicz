@@ -41,7 +41,7 @@ export const Page: ComponentFunction = ({
     children: [
       Welcome({
         classNames,
-        heading: welcome.heading,
+        content: welcome,
         className: screenClassName,
         attributes: { id: constants.welcomeId },
         IconLinkProps: {

@@ -5,6 +5,7 @@ export { Footer } from './Footer/';
 export { IconLinks } from './IconLinks/';
 export { Page } from './Page/';
 export { Knowledge } from './Knowledge/';
+export { NoScript } from './NoScript/';
 export { SocialMedia } from './SocialMedia/';
 export { Welcome } from './Welcome/';
 export { WorkMedia } from './WorkMedia/';

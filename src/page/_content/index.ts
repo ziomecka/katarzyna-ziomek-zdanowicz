@@ -4,6 +4,7 @@ import contactTexts from './contact/';
 import footerTexts from './footer/';
 import knowledgeTexts from './knowledge/';
 import projectTexts from './project/';
+import welcomeTexts from './welcome/';
 
 const getLanguage = (lang: string): Partial<PagesContent> => {
   const [
@@ -12,12 +13,14 @@ const getLanguage = (lang: string): Partial<PagesContent> => {
     knowledge,
     project,
     footer,
+    welcome,
   ] = [
     aboutMeTexts,
     contactTexts,
     knowledgeTexts,
     projectTexts,
     footerTexts,
+    welcomeTexts,
   ].map(texts => texts[lang]);
 
   return {
@@ -26,15 +29,13 @@ const getLanguage = (lang: string): Partial<PagesContent> => {
     knowledge,
     project,
     footer,
+    welcome,
   };
 };
-
-const welcomeHeading = 'Katarzyna\nZiomek-Zdanowicz';
 
 const getPageContent = (
   (lang = 'en'): PagesContent => {
     return {
-      welcome: { heading: welcomeHeading },
       ...getLanguage(lang),
     } as unknown as PagesContent;
   }

@@ -35,7 +35,7 @@ export const InputBuilder: InputBuilder<InputProps> = ({
         className: 'box-input',
         children: [
           Component(),
-          InputLabel({ label }),
+          InputLabel({ label, attributes: { for: attributes.id || '' } }),
         ],
       })
       : Component({ attributes });

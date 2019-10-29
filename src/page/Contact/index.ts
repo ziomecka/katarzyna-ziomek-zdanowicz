@@ -20,7 +20,6 @@ import { onClick as onClickHandler } from './on-click';
 const nameId = 'name-input';
 const emailId = 'email-input';
 const messageId = 'message-textarea';
-const modalShowClassName = 'modal--show';
 const buttonHighlightClassName = 'button-highlight';
 const bodyModalClassName = 'body--modal';
 const bodyFormClassName = 'body--form';
