@@ -1,1 +1,0 @@
-export { buildCreateComponent } from './server/';
