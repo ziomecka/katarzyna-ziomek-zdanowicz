@@ -31,14 +31,14 @@ export const Footer: ComponentFunction<FooterProps> = ({
       justifyContent: 'flex-end',
       alignItems: 'center',
       flex: '1 2 50%',
-    },
+    } as Flex,
   };
 
   const boxProps = {
     className: boxLinkClassName,
     flex: {
       justifyContent: 'flex-end',
-    },
+    } as Flex,
   };
 
   const socialMediaProps = {
@@ -46,7 +46,7 @@ export const Footer: ComponentFunction<FooterProps> = ({
       display: 'inline-flex',
       justifyContent: 'flex-end',
       flex: '1 0 50%',
-    },
+    } as Flex,
   };
 
   return FooterComponent({
@@ -66,7 +66,7 @@ export const Footer: ComponentFunction<FooterProps> = ({
           flexDirection: 'column',
           alignItems: heading ? 'space-between' : 'flex-end',
           justifyContent: 'space-around',
-        },
+        } as Flex,
         style: { height: '100%' },
         children: [
           Box({
@@ -81,7 +81,7 @@ export const Footer: ComponentFunction<FooterProps> = ({
                 className: 'socialmedia',
                 children: [
                   CV({
-                    flex: { justifyContent: 'flex-end' },
+                    flex: { justifyContent: 'flex-end' } as Flex,
                     attributes: {
                       href,
                       'aria-hidden': true,

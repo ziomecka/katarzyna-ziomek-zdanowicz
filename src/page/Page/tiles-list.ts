@@ -20,7 +20,7 @@ const modalProps = {
   className: modalClassName,
   flex: {
     justifyContent: 'flex-start',
-  },
+  } as Flex,
 };
 
 const buildHeadingId = (strings, id): string => `${ id }-heading`;
