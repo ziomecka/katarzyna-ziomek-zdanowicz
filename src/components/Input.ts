@@ -10,15 +10,5 @@ export const Input: ComponentFunction<InputProps> =
 
 interface InputProps {
   label?: string;
-  attributes: InputAttributes;
+  attributes: HTMLInputElementAttributes;
 }
-
-interface InputAttributes extends
-  ElementAttributes,
-  Record<string, number | string | boolean> {
-    type?: InputType;
-    placeholder?: string;
-    alt?: string;
-    required?: boolean;
-    pattern?: string;
-  }
