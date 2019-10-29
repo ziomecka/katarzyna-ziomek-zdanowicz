@@ -4,6 +4,7 @@ import { FooterContent } from './footer';
 import { KnowledgeContent } from './knowledge';
 import { PageContent } from './common.types';
 import { ProjectContent } from './project';
+import { WelcomeContent } from './welcome';
 
 export type PagesContent = {
   aboutMe: AboutMeContent;
@@ -11,7 +12,7 @@ export type PagesContent = {
   footer: FooterContent;
   knowledge: KnowledgeContent;
   project: ProjectContent;
-  welcome: PageContent;
+  welcome: WelcomeContent;
 }
 
 export {
@@ -20,5 +21,6 @@ export {
   FooterContent,
   KnowledgeContent,
   ProjectContent,
+  WelcomeContent,
   PageContent,
 };
