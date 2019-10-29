@@ -197,5 +197,5 @@ interface ContactProps {
   };
   modalId: string;
   unsubscribeForm?: () => void;
-  HeadingProps: Partial<ComponentProps>;
+  HeadingProps: Partial<ComponentProps> & { heading: string };
 }
