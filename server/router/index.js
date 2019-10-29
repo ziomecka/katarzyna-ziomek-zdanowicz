@@ -25,6 +25,8 @@ router.get('*.js', (req, res) => {
 
   if (isProduction) {
     res.setHeader('Content-Encoding', 'gzip');
+    res.setHeader('Vary', 'Accept-Encoding');
+
     fileName = `${ req.url }.gz`;
   }
 
