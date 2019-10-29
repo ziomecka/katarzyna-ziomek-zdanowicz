@@ -111,14 +111,10 @@ export const Modal: ComponentFunction<ModalProps> = ({
   });
 };
 
-interface HeadingProps extends Partial<ComponentProps>, Attributes {
+interface HeadingProps extends Partial<ComponentProps> {
   heading?: string;
   headingVariant?: TypographyVariant;
   headingInnerHTML?: boolean;
-}
-
-interface Attributes extends Partial<ElementAttributes> {
-  id: string;
 }
 
 export interface ModalProps {
