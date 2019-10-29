@@ -85,8 +85,8 @@
     "node-fetch": "2.6.0",
     "publisher-subscriber": "1.0.12",
     "publisher-subscriber-pattern": "2.0.4",
-    "render-it-client": "0.0.2",
-    "render-it-server": "0.0.2",
+    "render-it-client": "0.1.0",
+    "render-it-server": "0.1.0",
     "rendering-recursive-client-side": "0.1.2",
     "rendering-recursive-server-side": "0.1.2",
     "uuid": "3.3.3"
