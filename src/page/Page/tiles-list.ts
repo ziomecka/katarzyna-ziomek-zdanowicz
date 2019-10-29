@@ -130,7 +130,7 @@ type MappedProps = {
   };
   HeadingProps?: {
     heading?: string;
-    attributes?: Partial<ElementAttributes>;
+    attributes?: Partial<HTMLElementAttributes>;
   };
   Component: ComponentFunction;
   id: string;
