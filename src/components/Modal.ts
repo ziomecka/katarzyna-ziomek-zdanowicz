@@ -122,4 +122,6 @@ export interface ModalProps {
   ariaDescribedBy?: string;
   ariaLabelledBy?: string;
   removeBodyClass(value: string): void;
+  turnOnBodyScrolling(): void;
+  unsubscribe(): void;
 }
