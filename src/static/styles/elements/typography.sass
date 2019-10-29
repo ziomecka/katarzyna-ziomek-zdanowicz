@@ -4,11 +4,6 @@ $xs-font-size: 18px
 $sm-font-size: 22px
 $md-font-size: 24px
 
-$xs-h1-font-size: 2.5rem
-$sm-h1-font-size: 3rem
-$md-h1-font-size: 3rem
-$lg-h1-font-size: 3rem
-
 @font-face
   font-family: 'Lato'
   src: url('../fonts/Lato/lato-regular-webfont.woff2') format('woff2'), url('../fonts/Lato/lato-regular-webfont.woff') format('woff'), url('../fonts/Lato/lato-regular.ttf') format('ttf')
@@ -59,12 +54,20 @@ h1
   @media(min-width: $md-media)
     max-width: #{$md-h1-width}px
 
-// $shadow-h1-1: #2e2e2e
-// $shadow-h1-2: #3d3d3d
-// $shadow-h1-3: #4c4c4c
-// $shadow-h1-4: #5c5c5c
-// $shadow-h1-5: #6b6b6b
-// text-shadow: 0 1px 0 #{$shadow-h1-1}, 0 2px 0 #{$shadow-h1-2}, 0 3px 0 #{$shadow-h1-3}, 0 4px 0 #{$shadow-h1-4}, 0 5px 0 #{$shadow-h1-5}, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15)
+$shadow-h1-1: #2e2e2e
+$shadow-h1-2: #3d3d3d
+$shadow-h1-3: #4c4c4c
+$shadow-h1-4: #5c5c5c
+$shadow-h1-5: #6b6b6b
+
+$xs-h1-font-size: 2.5rem
+$sm-h1-font-size: 3rem
+
+.svg-fallback
+  font-size: $xs-h1-font-size
+  text-shadow: 0 1px 0 #{$shadow-h1-1}, 0 2px 0 #{$shadow-h1-2}, 0 3px 0 #{$shadow-h1-3}, 0 4px 0 #{$shadow-h1-4}, 0 5px 0 #{$shadow-h1-5}, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15)
+  @media(min-width: $sm-media
+    font-size: $sm-h1-font-size)
 
 h2
   margin: 0
