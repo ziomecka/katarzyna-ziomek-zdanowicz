@@ -7,6 +7,7 @@ import {
   TypographyVariant,
 } from '../../components/';
 import { IconLinkProps } from '../../components/IconLink';
+import { NoScript } from '../';
 import { WelcomeContent } from '../_content/types';
 import { expandMoreDoubleIcon } from '../_constants';
 
@@ -14,7 +15,7 @@ const headingSVG = require('../../static/icons/heading.svg');
 const shadowSVG = require('../../static/icons/shadow.svg');
 
 export const Welcome: ComponentFunction<WelcomeProps> = ({
-  heading = '',
+  content: { noScript },
   headingVariant = TypographyVariant.h1,
   IconLinkProps,
   style = {},
@@ -51,6 +52,9 @@ export const Welcome: ComponentFunction<WelcomeProps> = ({
               justifyContent: 'center',
             },
             children: [
+              NoScript({
+                value: noScript,
+              }),
               IconLink({
                 ...IconLinkProps,
                 children: [ expandMoreDoubleIcon ],
