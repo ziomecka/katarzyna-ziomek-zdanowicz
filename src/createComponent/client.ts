@@ -4,6 +4,7 @@ require('./global');
 const { classNames } = require('../classNames');
 const { options } = require('./common');
 
-module.exports = require('../library/client/')
-  .buildCreateComponent({ classNames, options });
+const { buildCreateComponent }
+  = require('../../../just/devBundle/client/');
 
+module.exports = buildCreateComponent({ classNames, options });

@@ -1,7 +1,9 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import { Page } from './page';
 import { classNames } from './classNames';
-import { hydrate } from './library/client';
+
+const { hydrate }
+  = require('../../just/devBundle/client/');
 
 require('./static/styles/index.sass');
 

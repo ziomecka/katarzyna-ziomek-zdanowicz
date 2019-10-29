@@ -1,5 +1,7 @@
-import { Helpers } from 'src/library/common/build-component-helpers';
-import { buildCreateComponent } from '../library/server/';
+/* eslint-disable @typescript-eslint/no-var-requires */
+const { buildCreateComponent }
+  = require('../../../just/devBundle/server/');
+
 import { options } from './common';
 
 const createGlobalCreateComponent = (
