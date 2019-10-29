@@ -116,7 +116,6 @@ export const Contact: ComponentFunction<ContactProps> = ({
                       attributes: {
                         placeholder: nameLabel,
                         id: nameId,
-                        tabIndex: 0,
                         pattern: nameRegExp,
                       },
                       eventHandlers: {
@@ -132,7 +131,6 @@ export const Contact: ComponentFunction<ContactProps> = ({
                       attributes: {
                         placeholder: emailLabel,
                         id: emailId,
-                        tabIndex: 1,
                         pattern: emailRegExp,
                       },
                       eventHandlers: {
@@ -148,7 +146,6 @@ export const Contact: ComponentFunction<ContactProps> = ({
                       attributes: {
                         placeholder: messageLabel,
                         id: messageId,
-                        tabIndex: 2,
                         Rows: 1,
                       },
                       eventHandlers: {
@@ -163,7 +160,6 @@ export const Contact: ComponentFunction<ContactProps> = ({
                     }),
                     Button({
                       label: content.formButton,
-                      attributes: { tabIndex: 2 },
                       className: buttonHighlightClassName,
                       eventHandlers: { onClick },
                     }),
