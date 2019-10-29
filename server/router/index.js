@@ -6,7 +6,9 @@ const router = express.Router();
 const contact = require('./contact');
 const cacheTime = 86400000 * 30;
 
-const STATIC_PATH = process.env.NODE_ENV === 'production'
+const isProduction = process.env.NODE_ENV === 'production';
+
+const STATIC_PATH = isProduction
   ? path.resolve(__dirname, '../../bundleServerProd')
   : path.resolve(__dirname, '../../bundleServerDev');
 
@@ -17,9 +19,16 @@ router.get('/', (req, res) => {
 });
 
 router.get('*.js', (req, res) => {
-  res.set('Content-Type', 'text/javascript');
-  res.setHeader('Content-Encoding', 'gzip');
-  res.sendFile(path.join(STATIC_PATH, `${ req.url }.gz`));
+  res.setHeader('Content-Type', 'text/javascript');
+
+  let fileName;
+
+  if (isProduction) {
+    res.setHeader('Content-Encoding', 'gzip');
+    fileName = `${ req.url }.gz`;
+  }
+
+  res.sendFile(path.join(STATIC_PATH, fileName || req.url));
 });
 
 router.get('favicon/*', (req, res) => {
