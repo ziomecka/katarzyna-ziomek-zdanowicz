@@ -5,31 +5,14 @@ import {
 
 export const InputComponentBuilder: InputComponentBuilder<InputProps> = ({
   HTMLTag = 'input',
-  attributes: { type = '' } = {},
 }): ComponentFunction<InputProps> => (
   ({
     label,
-    id = '',
-    placeholder,
-    required = true,
-    attributes: { tabIndex = -1, autoFocus = false, ...otherAttributes } = {},
+    attributes,
+    attributes: { tabIndex = -1, autoFocus = false } = {},
     ...otherProps
   } = {}): string => {
 
-    const attributes = type
-      ? {
-        type,
-        id,
-        placeholder,
-        required,
-        ...otherAttributes,
-      }
-      : {
-        id,
-        placeholder,
-        required,
-        ...otherAttributes,
-      };
 
     const Component = ({
       ...other
@@ -52,35 +35,19 @@ export const InputComponentBuilder: InputComponentBuilder<InputProps> = ({
         className: 'box-input',
         children: [
           Component(),
-          InputLabel({ label, autoFocus }),
+          InputLabel({ label }),
         ],
       })
-      : Component({ tabIndex, autoFocus });
+      : Component({ attributes });
   });
 
 type InputComponentBuilder<P> =
-  (props: InputComponentBuilderProps) => ComponentFunction<P>;
-
-interface InputComponentBuilderProps {
-  HTMLTag: string;
-  attributes?: ComponentAttributes;
-}
+  (props: {
+    HTMLTag: string;
+    attributes?: HTMLInputElementAttributes;
+  }) => ComponentFunction<P>;
 
 interface InputProps {
   label?: string;
-  attributes?: ComponentAttributes;
-}
-
-interface ComponentAttributes extends ElementAttributes {
-  type?: InputType;
-  placeholder?: string;
-  alt?: string;
-  required?: boolean;
-}
-
-export const enum InputType {
-  text = 'text',
-  password = 'password',
-  file = 'file',
-  image = 'image',
+  attributes?: HTMLInputElementAttributes;
 }

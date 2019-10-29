@@ -1,4 +1,1 @@
-export {
-  InputComponentBuilder,
-  InputType,
-} from './InputComponentBuilder';
+export { InputComponentBuilder } from './InputComponentBuilder';
