@@ -22,7 +22,7 @@ export const Page: ComponentFunction = ({
     controlBodyScroll,
     documentEventsPublisher,
     windowEventsPublisher,
-    loopThroughChildren,
+    controlInternalState,
   },
 }) => {
   const {
@@ -63,7 +63,6 @@ export const Page: ComponentFunction = ({
               controlBodyScroll,
               documentEventsPublisher,
               windowEventsPublisher,
-              loopThroughChildren,
             } }),
             flex: { alignItems: 'center' },
           }),

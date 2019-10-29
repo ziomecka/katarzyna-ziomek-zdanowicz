@@ -20,7 +20,6 @@ export const tilesRender = ({
     controlBodyScroll: { turnOnBodyScrolling, turnOffBodyScrolling },
     documentEventsPublisher,
     windowEventsPublisher,
-    loopThroughChildren,
   },
 }): TileProps[] => {
 
@@ -33,16 +32,7 @@ export const tilesRender = ({
   const buildFormKeydownListener = ($element: HTMLElement) => (
     (event: KeyboardEvent): void => {
       if (event.key.toLowerCase() === 'enter') {
-        const $button = loopThroughChildren({
-          children: $element.children,
-          callback: ($child) => {
-            if ($child.tagName.toLowerCase() === 'button') {
-              return $child;
-            }
-          },
-          breakOnTruthy: true,
-        });
-
+        const $button = $element.getElementsByTagName('button')[0];
         $button && ($button as HTMLButtonElement).click();
       }
     }
