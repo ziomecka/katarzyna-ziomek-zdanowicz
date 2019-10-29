@@ -1,2 +1,1 @@
-declare type Helpers =
-  import('../../../just/devBundle/server/types.js').Helpers;
+declare type Helpers = import('render-it-server/types').Helpers;

@@ -2,8 +2,7 @@
 import { Page } from './page';
 import { classNames } from './classNames';
 
-const { hydrate }
-  = require('../../just/devBundle/client/');
+const { hydrate } = require('render-it-client');
 
 require('./static/styles/index.sass');
 

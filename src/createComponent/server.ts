@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { buildCreateComponent }
-  = require('../../../just/devBundle/server/');
+const { buildCreateComponent } = require('render-it-server');
 
 import { options } from './common';
 

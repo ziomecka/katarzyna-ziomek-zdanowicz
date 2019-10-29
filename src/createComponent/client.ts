@@ -5,6 +5,6 @@ const { classNames } = require('../classNames');
 const { options } = require('./common');
 
 const { buildCreateComponent }
-  = require('../../../just/devBundle/client/');
+  = require('render-it-client');
 
 module.exports = buildCreateComponent({ classNames, options });

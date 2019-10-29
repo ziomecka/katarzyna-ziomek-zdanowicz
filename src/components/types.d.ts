@@ -1,5 +1,5 @@
 declare type ClassNames =
-  import('../../../just/devBundle/client/types.js').ClassNames & {
+  import('render-it-client/types').ClassNames & {
     main?: string;
     header?: string;
     footer?: string;
@@ -11,11 +11,11 @@ declare type ClassNames =
   };
 
 declare type LinkAttributes = import(
-  '../../../just/devBundle/client/types.js'
+  'render-it-client/types'
 ).HTMLAnchorElementAttributes;
 
 type CustomHTMLElementProps = import(
-'rendering-recursive-server-side'
+'rendering-recursive-client-side'
 ).CustomHTMLElementProps;
 
 declare type HTMLElementProps = CustomHTMLElementProps & {
@@ -23,26 +23,26 @@ declare type HTMLElementProps = CustomHTMLElementProps & {
 };
 
 declare type HTMLInputType =
-  import('../../../just/devBundle/client/types.js').HTMLInputType;
+  import('render-it-client/types').HTMLInputType;
 
-type F = import('../../../just/devBundle/client/types.js').Flex;
+type F = import('render-it-client/types').Flex;
 
 declare interface Flex extends F {}
 
 declare type HTMLElementAttributes =
-  import('../../../just/devBundle/client/types.js').HTMLElementAttributes;
+  import('render-it-client/types').HTMLElementAttributes;
 
 declare type HTMLInputElementAttributes =
-  import('../../../just/devBundle/client/types.js').HTMLInputElementAttributes;
+  import('render-it-client/types').HTMLInputElementAttributes;
 
 declare type HTMLTextareaElementAttributes =
-  import('../../../just/devBundle/client/types.js')
+  import('render-it-client/types')
     .HTMLTextareaElementAttributes;
 
 declare type ComponentProps =
-  import('../../../just/devBundle/client/types.js').ComponentProps;
+  import('render-it-client/types').ComponentProps;
 
 
 declare type ComponentFunction<P = ComponentProps, R = string> =
-  import('../../../just/devBundle/client/types.js')
+  import('render-it-client/types')
   .ComponentFunction<P, R>;
