@@ -31,7 +31,7 @@ export const Modal: ComponentFunction<ModalProps> = ({
   } = {},
   HeadingProps: {
     attributes: headingAttributes = {},
-    heading,
+    heading = '',
     ...otherHeadingProps
   } = {},
   flex,

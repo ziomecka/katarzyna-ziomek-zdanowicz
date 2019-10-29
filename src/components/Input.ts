@@ -4,7 +4,7 @@ export const Input: ComponentFunction<InputProps> =
   InputBuilder({
     HTMLTag: 'input',
     attributes: {
-      type: InputType.text,
+      type: 'text' as HTMLInputType,
     },
   });
 

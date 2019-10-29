@@ -1,5 +1,5 @@
 export const Footer: ComponentFunction = (
-  ({ style, flex, ...otherProps } = {}) => (
+  ({ style = {}, flex = {}, ...otherProps } = {}) => (
     createComponent({
       componentId: 'footer',
       HTMLTag: 'footer',

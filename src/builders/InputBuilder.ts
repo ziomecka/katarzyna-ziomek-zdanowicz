@@ -7,7 +7,7 @@ export const InputBuilder: InputBuilder<InputProps> = ({
   HTMLTag = 'input',
 }): ComponentFunction<InputProps> => (
   ({
-    label,
+    label = '',
     attributes,
     attributes: { tabIndex = -1, autoFocus = false } = {},
     ...otherProps

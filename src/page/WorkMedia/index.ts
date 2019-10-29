@@ -2,7 +2,7 @@ import { IconLinks } from '../';
 import { media } from './constants';
 
 export const WorkMedia: ComponentFunction<WorkMediaProps> = (
-  ({ flex, targetBlank, ...otherProps } = {}) => {
+  ({ flex = undefined, targetBlank = '', ...otherProps } = {}) => {
     return IconLinks({
       links: media,
       flex,

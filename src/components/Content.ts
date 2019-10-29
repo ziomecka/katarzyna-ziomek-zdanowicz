@@ -27,9 +27,9 @@ export const Content: ComponentFunction<ContentProps> = (
     center = true,
     captureFocus = false,
     HeadingProps: {
-      heading,
+      heading = '',
       headingVariant = defaultHeadingVariant,
-      headingInnerHTML,
+      headingInnerHTML = '',
       ...otherHeadingProps
     } = {},
     flex: flexProps,

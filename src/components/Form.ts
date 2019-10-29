@@ -2,7 +2,7 @@ const fakeFunction = (): void => {};
 
 export const Form: ComponentFunction<FormProps> = (
   ({
-    Component,
+    Component = undefined,
     ComponentProps = {},
     FormComponents,
     eventHandlers: receivedEventHandlers,
