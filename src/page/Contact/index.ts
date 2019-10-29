@@ -16,7 +16,6 @@ import { ContactContent } from '../_content/types';
 import { contactId } from '../_constants';
 import { isValid } from './is-valid';
 import { onClick as onClickHandler } from './on-click';
-import { setStateHook } from '../../common';
 
 const nameId = 'name-input';
 const emailId = 'email-input';
@@ -31,7 +30,7 @@ export const Contact: ComponentFunction<ContactProps> = ({
   content,
   classNames,
   children = [],
-  helpers: { addBodyClass, removeBodyClass },
+  helpers: { addBodyClass, removeBodyClass, controlInternalState },
   modalId,
   HeadingProps = {},
 }) => {
@@ -48,9 +47,9 @@ export const Contact: ComponentFunction<ContactProps> = ({
     alignItems: 'center',
   } as Flex;
 
-  const [ name, changeName ] = setStateHook('');
-  const [ email, changeEmail ] = setStateHook('');
-  const [ message, changeMessage ] = setStateHook('');
+  const [ name, changeName ] = controlInternalState('');
+  const [ email, changeEmail ] = controlInternalState('');
+  const [ message, changeMessage ] = controlInternalState('');
 
   const isValidForm = (): boolean => (
     isValid(name(), nameRegExp) &&
@@ -191,6 +190,10 @@ interface ContactProps {
   helpers: {
     addBodyClass(className: string): void;
     removeBodyClass(className: string): void;
+    controlInternalState(value: string): [
+      () => string,
+      (value: string) => void,
+    ];
   };
   modalId: string;
   unsubscribeForm?: () => void;

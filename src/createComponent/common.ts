@@ -3,4 +3,5 @@ export const options = [
   'documentEventsPublisher',
   'windowEventsPublisher',
   'controlBodyScroll',
+  'controlInternalState',
 ];

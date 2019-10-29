@@ -60,6 +60,7 @@ export const Page: ComponentFunction = ({
           TileList({
             items: tilesRender({ helpers: {
               controlBodyScroll,
+              controlInternalState,
               documentEventsPublisher,
               modifyBodyClassList,
               windowEventsPublisher,

@@ -19,6 +19,7 @@ export const tilesRender = ({
     controlBodyScroll: { turnOnBodyScrolling, turnOffBodyScrolling },
     documentEventsPublisher,
     windowEventsPublisher,
+    controlInternalState,
   },
 }): ComponentProps[] => {
 
@@ -66,7 +67,7 @@ export const tilesRender = ({
 
   return (
     tilesList(
-      { helpers: { addBodyClass, removeBodyClass } }
+      { helpers: { addBodyClass, removeBodyClass, controlInternalState } }
     ).map(({
       HeadingProps = {},
       Component,
