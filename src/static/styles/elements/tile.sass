@@ -9,16 +9,19 @@
   background-color: $background-light-color
   border-radius: $regular-border-radius
   box-shadow: 0px $box-shadow-size $box-shadow-radius $background-color
+  cursor: pointer
   &:hover
     background-color: $hover-background-color
   @media(min-width: $sm-media)
     box-shadow: $box-shadow-size $box-shadow-size $box-shadow-radius rgba(0,0,0, 0.4)
   @media(min-width: $md-media)
+    cursor: default
     background-color: transparent
     box-shadow: none
     > h2
       font-size: 1.6rem
       color: $background-color
+      cursor: pointer
     &:hover
       background-color: transparent
 
