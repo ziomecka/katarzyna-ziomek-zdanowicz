@@ -7,6 +7,7 @@ import {
   TypographyVariant,
 } from '../../components/';
 import { IconLinkProps } from '../../components/IconLink';
+import { WelcomeContent } from '../_content/types';
 import { expandMoreDoubleIcon } from '../_constants';
 
 const headingSVG = require('../../static/icons/heading.svg');
@@ -63,7 +64,7 @@ export const Welcome: ComponentFunction<WelcomeProps> = ({
 };
 
 interface WelcomeProps {
-  heading: string;
+  content: WelcomeContent;
   headingVariant?: TypographyVariant;
   IconLinkProps: IconLinkProps;
 }
