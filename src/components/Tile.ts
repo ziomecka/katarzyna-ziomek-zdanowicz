@@ -1,6 +1,6 @@
 const tileClassName = 'tile';
 
-export const Tile: ComponentFunction<TileProps> = ({
+export const Tile: ComponentFunction = ({
   className,
   children,
   flex,
@@ -21,9 +21,3 @@ export const Tile: ComponentFunction<TileProps> = ({
     },
   });
 };
-
-export interface TileProps {
-  attributes: Partial<ElementAttributes> & {
-    id: string;
-  };
-}

@@ -1,7 +1,6 @@
 import {
   Heading,
   Modal,
-  TileProps,
   TypographyVariant,
 } from '../../components/';
 import { Dots } from '../';
@@ -21,7 +20,7 @@ export const tilesRender = ({
     documentEventsPublisher,
     windowEventsPublisher,
   },
-}): TileProps[] => {
+}): ComponentProps[] => {
 
   let unsubscribeForm = fakeFunction;
   let unsubscribeEscapeKey = fakeFunction;

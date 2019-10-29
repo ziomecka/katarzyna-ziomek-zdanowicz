@@ -1,7 +1,4 @@
-import {
-  Tile,
-  TileProps,
-} from './';
+import { Tile } from './';
 
 const tileListClassName = 'list-tiles';
 
@@ -26,5 +23,5 @@ export const TileList: ComponentFunction<TileListProps> = (
 );
 
 interface TileListProps {
-  items: TileProps[];
+  items: ComponentProps[];
 }
