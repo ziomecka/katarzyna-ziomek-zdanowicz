@@ -169,7 +169,11 @@ export const tilesRender = ({
             HeadingProps,
             ContentProps: {
               children: [
-                Component({ modalId, attributes: { id: componentId } }),
+                Component({
+                  modalId,
+                  attributes: { id: componentId },
+                  closeModal,
+                }),
               ].concat(childrenContentProps),
               ...otherContentProps,
             },

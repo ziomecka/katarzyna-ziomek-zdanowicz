@@ -123,6 +123,11 @@ export const tilesList: TilesList = ({ helpers }) => {
 
 type TileList = MappedProps[];
 type TilesList = ({ helpers }) => TileList;
+type MappedComponent = ComponentFunction<{
+  heading?: string,
+  modalId?: string,
+  closeModal?: () => void,
+}>;
 type MappedProps = {
   ModalProps?: Partial<ComponentProps> & Partial<ModalProps> & {
     ContentProps?: Partial<ComponentProps>;
@@ -132,7 +137,7 @@ type MappedProps = {
     heading?: string;
     attributes?: Partial<HTMLElementAttributes>;
   };
-  Component: ComponentFunction<{ heading?: string }>;
+  Component: MappedComponent;
   id: string;
   isForm?: boolean;
 };
