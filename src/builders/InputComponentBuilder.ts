@@ -3,10 +3,10 @@ import {
   InputLabel,
 } from '../components/';
 
-export const InputComponentBuilder: InputComponentBuilder<CProps> = ({
+export const InputComponentBuilder: InputComponentBuilder<InputProps> = ({
   HTMLTag = 'input',
   attributes: { type = '' } = {},
-}): ComponentFunction<CProps> => (
+}): ComponentFunction<InputProps> => (
   ({
     label,
     id = '',
@@ -33,7 +33,7 @@ export const InputComponentBuilder: InputComponentBuilder<CProps> = ({
 
     const Component = ({
       ...other
-    }: Partial<CProps> = {}): string => (
+    }: Partial<InputProps> = {}): string => (
       createComponent({
         HTMLTag,
         attributes,
@@ -66,7 +66,7 @@ interface InputComponentBuilderProps {
   attributes?: ComponentAttributes;
 }
 
-interface CProps extends ComponentProps {
+interface InputProps {
   label?: string;
   attributes?: ComponentAttributes;
 }
