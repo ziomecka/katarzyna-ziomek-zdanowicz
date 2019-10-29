@@ -1,7 +1,7 @@
-import { InputComponentBuilder } from '../builders/';
+import { InputBuilder } from '../builders/';
 
 export const Textarea: ComponentFunction<TextareaProps> =
-  InputComponentBuilder({ HTMLTag: 'textarea' });
+  InputBuilder({ HTMLTag: 'textarea' });
 
 interface TextareaProps{
   label?: string;

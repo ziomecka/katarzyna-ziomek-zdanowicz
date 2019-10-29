@@ -1,1 +1,1 @@
-export { InputComponentBuilder } from './InputComponentBuilder';
+export { InputBuilder } from './InputBuilder';

@@ -3,7 +3,7 @@ import {
   InputLabel,
 } from '../components/';
 
-export const InputComponentBuilder: InputComponentBuilder<InputProps> = ({
+export const InputBuilder: InputBuilder<InputProps> = ({
   HTMLTag = 'input',
 }): ComponentFunction<InputProps> => (
   ({
@@ -41,7 +41,7 @@ export const InputComponentBuilder: InputComponentBuilder<InputProps> = ({
       : Component({ attributes });
   });
 
-type InputComponentBuilder<P> =
+type InputBuilder<P> =
   (props: {
     HTMLTag: string;
     attributes?: HTMLInputElementAttributes;

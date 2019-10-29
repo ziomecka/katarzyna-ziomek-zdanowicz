@@ -1,10 +1,7 @@
-import {
-  InputComponentBuilder,
-  InputType,
-} from '../builders/';
+import { InputBuilder } from '../builders/';
 
 export const Input: ComponentFunction<InputProps> =
-  InputComponentBuilder({
+  InputBuilder({
     HTMLTag: 'input',
     attributes: {
       type: InputType.text,
