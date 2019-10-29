@@ -4,7 +4,7 @@ const express = require('express');
 const path = require('path');
 const router = express.Router();
 const contact = require('./contact');
-const cacheTime = 86400000 * 30
+const cacheTime = 86400000 * 30;
 
 const STATIC_PATH = process.env.NODE_ENV === 'production'
   ? path.resolve(__dirname, '../../bundleServerProd')
@@ -12,7 +12,9 @@ const STATIC_PATH = process.env.NODE_ENV === 'production'
 
 const HTML_PATH = path.resolve(STATIC_PATH, './index.html');
 
-router.use(express.static(STATIC_PATH, { maxAge: cacheTime }));
+router.get('/', (req, res) => {
+  res.sendFile(HTML_PATH);
+});
 
 router.get('*.js', (req, res) => {
   res.set('Content-Type', 'text/javascript');
@@ -24,11 +26,9 @@ router.get('favicon/*', (req, res) => {
   res.sendFile(path.join(STATIC_PATH, req.url));
 });
 
-router.get('/', (req, res) => {
-  res.sendFile(HTML_PATH);
-});
-
 router.get('/contact*', contact);
+
+router.use(express.static(STATIC_PATH, { maxAge: cacheTime }));
 
 module.exports = router;
 
