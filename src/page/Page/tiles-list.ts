@@ -40,10 +40,9 @@ export const tilesList: TilesList = ({ helpers }) => {
 
   const projectTile = {
     id: projectId,
-    Component: ({ modalId = '', attributes = {} } = {}): string => Content({
+    Component: ({ attributes = {} } = {}): string => Content({
       content: project.content,
       attributes: { id: projectId, ...attributes },
-      modalId,
       ...commonProps,
     }),
     ModalProps: {
@@ -60,10 +59,9 @@ export const tilesList: TilesList = ({ helpers }) => {
 
   const aboutMeTile = {
     id: aboutMeId,
-    Component: ({ modalId = '', attributes = {} } = {}): string => Content({
+    Component: ({ attributes = {} } = {}): string => Content({
       content: aboutMe.content,
       attributes: { id: aboutMeId, ...attributes },
-      modalId,
       ...commonProps,
     }),
     ModalProps: {
@@ -80,10 +78,9 @@ export const tilesList: TilesList = ({ helpers }) => {
 
   const knowledgeTile: MappedProps = {
     id: knowledgeId,
-    Component: ({ modalId, attributes = {} } = {}): string => Knowledge({
+    Component: ({ attributes = {} } = {}): string => Knowledge({
       content: knowledge,
       attributes: { id: knowledgeId, ...attributes },
-      modalId,
       ...commonProps,
     }),
     ModalProps: {
