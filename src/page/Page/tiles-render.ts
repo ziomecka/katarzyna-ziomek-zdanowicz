@@ -46,8 +46,17 @@ export const tilesRender = ({
     unsubscribeForm = fakeFunction;
   };
 
-  const closeModal = (classList?: ClassList): void => {
-    if (classList) classList.remove(showModalClassName);
+  const closeModal = ({
+    classList,
+    modalId,
+  }: { classList?: ClassList, modalId?: string } = {}): void => {
+    if (classList) {
+      classList.remove(showModalClassName);
+    } else if (modalId) {
+      const $modal = document.getElementById(modalId);
+      $modal && $modal.classList.remove(showModalClassName);
+    }
+
     removeBodyClass(bodyModalClassName);
     unsubscribeEscapeKey();
     unsubscribeNavigate();
@@ -61,7 +70,7 @@ export const tilesRender = ({
   const keydownCallback =
     (classList?: ClassList) => (event: KeyboardEvent): void => {
       if (event.key.toLowerCase() === 'escape') {
-        closeModal(classList);
+        closeModal({ classList });
       }
     };
 
@@ -116,7 +125,7 @@ export const tilesRender = ({
 
           unsubscribeBrowserBack = windowEventsPublisher
             .subscribe('popstate', (): void => {
-              closeModal(classList);
+              closeModal({ classList });
             });
 
           unsubscribeNavigate = windowEventsPublisher
@@ -126,14 +135,14 @@ export const tilesRender = ({
             ) => {
               if (direction == 'back') {
                 event.preventDefault();
-                closeModal(classList);
+                closeModal({ classList });
               }
             });
 
           unsubscribeBackButton = documentEventsPublisher
             .subscribe('backbutton', (event) => {
               event.preventDefault();
-              closeModal(classList);
+              closeModal({ classList });
             });
 
           // todo improve
