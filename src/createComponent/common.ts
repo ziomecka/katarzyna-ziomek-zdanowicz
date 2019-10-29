@@ -1,5 +1,5 @@
 export const options = [
-  'controlBodyClassList',
+  'modifyBodyClassList',
   'documentEventsPublisher',
   'windowEventsPublisher',
   'controlBodyScroll',

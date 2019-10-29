@@ -18,7 +18,7 @@ const screenClassName = 'screen';
 export const Page: ComponentFunction = ({
   classNames,
   helpers: {
-    controlBodyClassList,
+    modifyBodyClassList,
     controlBodyScroll,
     documentEventsPublisher,
     windowEventsPublisher,
@@ -59,9 +59,9 @@ export const Page: ComponentFunction = ({
         children: [
           TileList({
             items: tilesRender({ helpers: {
-              controlBodyClassList,
               controlBodyScroll,
               documentEventsPublisher,
+              modifyBodyClassList,
               windowEventsPublisher,
             } }),
             flex: { alignItems: 'center' },

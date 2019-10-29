@@ -20,7 +20,7 @@ export const Modal: ComponentFunction<ModalProps> = ({
   eventHandlers = {},
   ariaDescribedBy,
   ariaLabelledBy,
-  removeClass = (): void => {},
+  removeBodyClass = (): void => {},
   turnOnBodyScrolling,
   unsubscribe,
   captureFocus = true,
@@ -40,7 +40,7 @@ export const Modal: ComponentFunction<ModalProps> = ({
   const onClick = (): void => {
     const $this = document.getElementById(id);
     if ($this) $this.classList.remove(showModalClassName);
-    removeClass(bodyModalClassName);
+    removeBodyClass(bodyModalClassName);
     unsubscribe();
     turnOnBodyScrolling();
   };
@@ -128,4 +128,5 @@ export interface ModalProps {
   HeadingProps?: Partial<HeadingProps>;
   ariaDescribedBy?: string;
   ariaLabelledBy?: string;
+  removeBodyClass(value: string): void;
 }

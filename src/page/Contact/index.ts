@@ -31,7 +31,7 @@ export const Contact: ComponentFunction<ContactProps> = ({
   content,
   classNames,
   children = [],
-  helpers: { addClass, removeClass },
+  helpers: { addBodyClass, removeBodyClass },
   modalId,
   HeadingProps = {},
 }) => {
@@ -57,9 +57,10 @@ export const Contact: ComponentFunction<ContactProps> = ({
     isValid(email(), emailRegExp)
   );
 
-  const addBodyFormClassName = (): void => addClass(bodyFormClassName);
+  const addBodyFormClassName = (): void => addBodyClass(bodyFormClassName);
 
-  const removeBodyFormClassName = (): void => removeClass(bodyFormClassName);
+  const removeBodyFormClassName =
+    (): void => removeBodyClass(bodyFormClassName);
 
   const onClick = async (): Promise<void> => {
     if (isValidForm()) {
@@ -70,7 +71,7 @@ export const Contact: ComponentFunction<ContactProps> = ({
           .value = '';
         (document.querySelector(`input#${ emailId }`) as HTMLInputElement)
           .value = '';
-        removeClass(bodyModalClassName);
+        removeBodyClass(bodyModalClassName);
       }
     }
   };
@@ -188,8 +189,8 @@ export const Contact: ComponentFunction<ContactProps> = ({
 interface ContactProps {
   content: ContactContent;
   helpers: {
-    addClass(className: string): void;
-    removeClass(className: string): void;
+    addBodyClass(className: string): void;
+    removeBodyClass(className: string): void;
   };
   modalId: string;
   unsubscribeForm?: () => void;

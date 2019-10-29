@@ -16,7 +16,7 @@ const fakeFunction = (): void => {};
 
 export const tilesRender = ({
   helpers: {
-    controlBodyClassList: { addClass, removeClass },
+    modifyBodyClassList: { addBodyClass, removeBodyClass },
     controlBodyScroll: { turnOnBodyScrolling, turnOffBodyScrolling },
     documentEventsPublisher,
     windowEventsPublisher,
@@ -48,7 +48,7 @@ export const tilesRender = ({
 
   const closeModal = (classList?: ClassList): void => {
     if (classList) classList.remove(showModalClassName);
-    removeClass(bodyModalClassName);
+    removeBodyClass(bodyModalClassName);
     unsubscribeEscapeKey();
     unsubscribeNavigate();
     unsubscribeBackButton();
@@ -65,8 +65,10 @@ export const tilesRender = ({
       }
     };
 
-  return tilesList({ helpers: { addClass, removeClass } })
-    .map(({
+  return (
+    tilesList(
+      { helpers: { addBodyClass, removeBodyClass } }
+    ).map(({
       HeadingProps = {},
       Component,
       id,
@@ -105,7 +107,7 @@ export const tilesRender = ({
             Array.from($modal.getElementsByClassName('box'));
           turnOffBodyScrolling();
           classList.add(showModalClassName);
-          addClass(bodyModalClassName);
+          addBodyClass(bodyModalClassName);
           $content.scrollTo({ top: 0 });
           setTimeout(() => $content && ($content as HTMLElement).focus());
 
@@ -173,7 +175,7 @@ export const tilesRender = ({
             },
             HTMLTag: 'div',
             attributes: { id: modalId },
-            removeClass,
+            removeBodyClass,
             ariaDescribedBy: componentId,
             closeLabel: 'close',
             unsubscribe: closeModal,
@@ -182,7 +184,8 @@ export const tilesRender = ({
           }),
         ],
       };
-    });
+    })
+  );
 };
 
 interface ClassList {
