@@ -5,14 +5,5 @@ export const Textarea: ComponentFunction<TextareaProps> =
 
 interface TextareaProps{
   label?: string;
-  attributes: TextareaAttributes;
+  attributes: HTMLTextareaElementAttributes;
 }
-
-interface TextareaAttributes extends
-  ElementAttributes,
-  Record<string, number | string | boolean> {
-    placeholder?: string;
-    alt?: string;
-    required?: boolean;
-    Rows?: number;
-  }
