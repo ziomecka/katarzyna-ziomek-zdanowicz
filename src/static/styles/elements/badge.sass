@@ -1,0 +1,13 @@
+.badge
+  g:nth-of-type(2)
+    position: relative
+    svg
+      height: 50%
+      width: auto
+      position: absolute
+      margin-left: 2px
+      @include absolute-center--y
+      path
+        fill: #ffffff
+  @media(max-width: $sm-media)
+    font-size: 12px!important
