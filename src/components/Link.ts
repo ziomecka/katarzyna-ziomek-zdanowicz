@@ -1,4 +1,4 @@
-import { targetBlankAttribute } from '../utils/target-blank-attribute';
+import { targetBlankAttribute } from './_constants';
 
 export const Link: ComponentFunction<LinkProps> =
 ({ attributes = { target: '' }, ...otherProps } = {}) => {
