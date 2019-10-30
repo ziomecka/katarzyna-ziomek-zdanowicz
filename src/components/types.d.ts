@@ -46,3 +46,8 @@ declare type ComponentProps =
 declare type ComponentFunction<P = ComponentProps, R = string> =
   import('render-it-client/types')
   .ComponentFunction<P, R>;
+
+declare const enum Target {
+  blank = '_blank',
+  self = '_self',
+}

@@ -2,9 +2,9 @@ import { IconLinks } from '../';
 import { medias } from './constants';
 
 export const SocialMedia: ComponentFunction<SocialMediaProps> = (
-  ({ targetBlank = '', ...otherProps } = {}) => {
+  ({ IconLinkProps = {}, ...otherProps } = {}) => {
     return IconLinks({
-      IconLinkProps: { targetBlank },
+      IconLinkProps,
       links: medias,
       ...otherProps,
     });
@@ -12,5 +12,5 @@ export const SocialMedia: ComponentFunction<SocialMediaProps> = (
 );
 
 interface SocialMediaProps {
-  targetBlank?: boolean;
+  IconLinkProps?: ComponentProps;
 }

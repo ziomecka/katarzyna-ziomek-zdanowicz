@@ -9,15 +9,10 @@ export const IconLinks: ComponentFunction<IconLinksProps> = (
   ({
     flex,
     links,
-    targetBlank,
-    IconLinkProps = {},
+    IconLinkProps: { attributes = {}, ...otherIconLinkProps } = {},
     className = '',
     ...otherProps
   }) => {
-    const target = targetBlank
-      ? '_blank'
-      : '';
-
     return (
       Box({
         ...otherProps,
@@ -31,8 +26,8 @@ export const IconLinks: ComponentFunction<IconLinksProps> = (
           .map(([ icon, href ]: [ string, string ]) => (
             IconLink({
               children: [ icon ],
-              attributes: { href, target },
-              ...IconLinkProps,
+              attributes: { href, ...attributes },
+              ...otherIconLinkProps,
             })
           )),
       })
@@ -42,6 +37,5 @@ export const IconLinks: ComponentFunction<IconLinksProps> = (
 
 interface IconLinksProps {
   links: [string, string][];
-  targetBlank?: boolean;
   IconLinkProps?: ComponentProps;
 }

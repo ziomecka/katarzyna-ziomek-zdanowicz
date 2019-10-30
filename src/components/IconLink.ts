@@ -1,8 +1,8 @@
 import { blankRelAttribute } from './_constants';
 
 export const IconLink: ComponentFunction<IconLinkProps> =
-({ attributes = { target: '' }, targetBlank, ...otherProps }) => {
-  const targetAttribute = attributes.target === '_blank' || targetBlank
+({ attributes = {}, ...otherProps }) => {
+  const relAttribute = attributes.target === Target.blank
     ? blankRelAttribute
     : {};
 
@@ -12,13 +12,12 @@ export const IconLink: ComponentFunction<IconLinkProps> =
     ...otherProps,
     attributes: {
       ...attributes,
-      ...targetAttribute,
+      ...relAttribute,
     },
   });
 };
 
 export interface IconLinkProps {
   attributes: LinkAttributes;
-  targetBlank?: boolean;
   className?: string;
 }

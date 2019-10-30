@@ -16,7 +16,6 @@ const buttonIconClassName = 'button-icon';
 
 export const Footer: ComponentFunction<FooterProps> = ({
   CVProps: { href },
-  targetBlank = false,
 }) => {
   const {
     footer: {
@@ -49,6 +48,7 @@ export const Footer: ComponentFunction<FooterProps> = ({
       justifyContent: 'flex-end',
       flex: '1 0 50%',
     } as Flex,
+    IconLinkProps: { attributes: { target: Target.blank } },
   };
 
   return FooterComponent({
@@ -103,7 +103,6 @@ export const Footer: ComponentFunction<FooterProps> = ({
                 ...typographyProps,
               }),
               SocialMedia({
-                targetBlank,
                 ...socialMediaProps,
               }),
             ],
@@ -116,7 +115,6 @@ export const Footer: ComponentFunction<FooterProps> = ({
                 ...typographyProps,
               }),
               WorkMedia({
-                targetBlank,
                 ...socialMediaProps,
               }),
             ],
@@ -128,7 +126,6 @@ export const Footer: ComponentFunction<FooterProps> = ({
 };
 
 interface FooterProps {
-  targetBlank?: boolean;
   CVProps: {
     href: string;
   };
