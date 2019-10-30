@@ -5,6 +5,7 @@ import {
 } from '../../components';
 import {
   CV,
+  CodedWithLove,
   SocialMedia,
   WorkMedia,
 } from '../';
@@ -23,6 +24,7 @@ export const Footer: ComponentFunction<FooterProps> = ({
       contact,
       cv,
       projects,
+      codedWithLove,
     },
   } = getContent();
 
@@ -55,6 +57,7 @@ export const Footer: ComponentFunction<FooterProps> = ({
       justifyContent: heading ? 'space-between' : 'flex-end',
     },
     children: [
+      CodedWithLove({ text: codedWithLove }),
       heading && Box({
         flex: { alignItems: 'flex-start' },
         children: [ Typography({ innerHTML: heading }) ],

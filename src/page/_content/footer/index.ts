@@ -9,6 +9,8 @@ const cvPl = require('./cv-pl.txt').default as string;
 const cvEn = require('./cv-en.txt').default as string;
 const projectsPl = require('./projects-pl.txt').default as string;
 const projectsEn = require('./projects-en.txt').default as string;
+const codedWithLovePl = require('./coded-with-love-pl.txt').default as string;
+const codedWithLoveEn = require('./coded-with-love-en.txt').default as string;
 
 const texts: Translations<FooterContent> = {
   pl: {
@@ -17,6 +19,7 @@ const texts: Translations<FooterContent> = {
     contact: contactPl,
     cv: cvPl,
     projects: projectsPl,
+    codedWithLove: codedWithLovePl,
   },
   en: {
     heading: '',
@@ -24,6 +27,7 @@ const texts: Translations<FooterContent> = {
     contact: contactEn,
     cv: cvEn,
     projects: projectsEn,
+    codedWithLove: codedWithLoveEn,
   },
 };
 
@@ -33,4 +37,5 @@ export interface FooterContent extends PageContent {
   contact: string;
   cv: string;
   projects: string;
+  codedWithLove: string;
 }
