@@ -1,9 +1,9 @@
-import { targetBlankAttribute } from './_constants';
+import { blankRelAttribute } from './_constants';
 
 export const Link: ComponentFunction<LinkProps> =
 ({ attributes = { target: '' }, ...otherProps } = {}) => {
   const targetAttribute = attributes.target === '_blank'
-    ? targetBlankAttribute
+    ? blankRelAttribute
     : {};
 
   return createComponent({

@@ -1,9 +1,9 @@
-import { targetBlankAttribute } from './_constants';
+import { blankRelAttribute } from './_constants';
 
 export const IconLink: ComponentFunction<IconLinkProps> =
 ({ attributes = { target: '' }, targetBlank, ...otherProps }) => {
   const targetAttribute = attributes.target === '_blank' || targetBlank
-    ? targetBlankAttribute
+    ? blankRelAttribute
     : {};
 
   return createComponent({
