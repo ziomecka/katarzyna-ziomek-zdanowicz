@@ -37,6 +37,9 @@ $opacity-footer: 1
 .footer-background
   color: $background-color
   background-color: $text-color
+  &:hover
+    .badge g:nth-of-type(2) svg path
+      fill: $highlight-primary-color
   @media(min-width: $sm-media)
     background-color: transparent
     &:before
@@ -51,8 +54,6 @@ $opacity-footer: 1
       transition: opacity $animation-duration
     &:hover
       color: $text-color
-      .badge g:nth-of-type(2) svg path
-        fill: $highlight-primary-color
       &:before
         opacity: $opacity-footer
 
