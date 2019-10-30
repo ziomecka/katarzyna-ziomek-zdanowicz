@@ -8,8 +8,10 @@ export const InputBuilder: InputBuilder<InputProps> = ({
 }): ComponentFunction<InputProps> => (
   ({
     label = '',
-    attributes,
-    attributes: { tabIndex = -1, autoFocus = false } = {},
+    attributes: {
+      autoFocus = false,
+      ...otherAttributes
+    } = {},
     ...otherProps
   } = {}): string => {
 
@@ -19,7 +21,9 @@ export const InputBuilder: InputBuilder<InputProps> = ({
     }: Partial<InputProps> = {}): string => (
       createComponent({
         HTMLTag,
-        attributes,
+        attributes: autoFocus
+          ? { autoFocus, ...otherAttributes }
+          : otherAttributes,
         ...otherProps,
         ...other,
       })
@@ -31,14 +35,13 @@ export const InputBuilder: InputBuilder<InputProps> = ({
           display: 'flex',
           justifyContent: 'center',
         },
-        attributes: { tabIndex, autoFocus },
         className: 'box-input',
         children: [
           Component(),
-          InputLabel({ label, attributes: { for: attributes.id || '' } }),
+          InputLabel({ label, attributes: { for: otherAttributes.id || '' } }),
         ],
       })
-      : Component({ attributes });
+      : Component();
   });
 
 type InputBuilder<P> =
