@@ -1,6 +1,8 @@
 /* eslint-disable quotes */
+require('dotenv').config();
+
 const getCspDirectives = () => {
-  const origin = process.NODE_ENV === 'production'
+  const origin = process.env.NODE_ENV === 'production'
     ? 'https://katarzyna-ziomek-zdanowicz.com*'
     : 'http://localhost:3000/*';
   const self = "'self'";
