@@ -1,3 +1,4 @@
+export { CodedWithLove } from './CodedWithLove/';
 export { Contact } from './Contact/';
 export { CV } from './CV/';
 export { Dots } from './Dots/';
