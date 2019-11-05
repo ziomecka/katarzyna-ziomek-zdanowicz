@@ -6,6 +6,7 @@ const {
   hostMySQL,
   userMySQL,
   passwordMySQL,
+  portMySQL,
 } = process.env.NODE.ENV === 'production'
   ? process.env
   : {
@@ -13,11 +14,13 @@ const {
     hostMySQL: 'localhost',
     userMySQL: 'kasia',
     passwordMySQL: 'kasia',
+    portMySQL: '',
   };
 
 const createConnection = (options) => (
   mysql.createConnection({
     host: hostMySQL,
+    port: portMySQL,
     user: userMySQL,
     password: passwordMySQL,
     database: databaseMySQL,
