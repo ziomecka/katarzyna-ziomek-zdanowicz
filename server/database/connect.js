@@ -21,7 +21,6 @@ const createConnection = (options) => (
     user: userMySQL,
     password: passwordMySQL,
     database: databaseMySQL,
-    port: '',
     charset : 'utf8',
     ...options,
   })
