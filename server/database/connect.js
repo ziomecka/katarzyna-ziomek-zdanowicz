@@ -3,19 +3,21 @@ const mysql = require('mysql');
 
 const {
   databaseMySQL,
+  hostMySQL,
   userMySQL,
   passwordMySQL,
 } = process.env.NODE.ENV === 'production'
   ? process.env
   : {
     databaseMySQL: 'katarzyn_frontend',
+    hostMySQL: 'localhost',
     userMySQL: 'kasia',
     passwordMySQL: 'kasia',
   };
 
 const createConnection = (options) => (
   mysql.createConnection({
-    host: 'localhost',
+    host: hostMySQL,
     user: userMySQL,
     password: passwordMySQL,
     database: databaseMySQL,
