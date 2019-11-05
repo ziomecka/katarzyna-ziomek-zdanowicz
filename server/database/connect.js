@@ -7,7 +7,7 @@ const {
   userMySQL,
   passwordMySQL,
   portMySQL,
-} = process.env.NODE.ENV === 'production'
+} = process.env.NODE_ENV === 'production'
   ? process.env
   : {
     databaseMySQL: 'katarzyn_frontend',
