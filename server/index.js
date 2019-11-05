@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 require('dotenv').config();
 require('./ssr/');
 
@@ -24,7 +25,8 @@ app.use(helmet());
 app.use(csp({ directives: getCspDirectives() }));
 app.use(router);
 
-server.listen(port, () => console.log(`Listening on port: ${ port }`)); // eslint-disable-line
+server.listen(port, async () => console.log(`Listening on port: ${ port }`));
+
 try {
   require('./content-database/create-content-database')();
 } catch (err) {
