@@ -8,11 +8,7 @@ const createTable = (
       )`
     );
 
-    try {
-      return query(create);
-    } catch (err) {
-      return err;
-    }
+    return await query(create);
   }
 );
 

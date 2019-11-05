@@ -25,3 +25,8 @@ app.use(csp({ directives: getCspDirectives() }));
 app.use(router);
 
 server.listen(port, () => console.log(`Listening on port: ${ port }`)); // eslint-disable-line
+try {
+  require('./content-database/create-content-database')();
+} catch (err) {
+  console.log(err);
+}

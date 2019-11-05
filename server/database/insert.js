@@ -18,11 +18,7 @@ const insert = (
       })`
     );
 
-    try {
-      await query(ins);
-    } catch (err) {
-      return err;
-    }
+    await query(ins);
   }
 );
 

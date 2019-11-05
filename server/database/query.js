@@ -1,20 +1,17 @@
 const connect = require('./connect');
 
 const query = async (dbOperation) => {
-  let connection;
-  try {
-    connection = await connect();
-  } catch (err) {
-    return err;
-  }
+  const connection = await connect();
 
   return new Promise((resolve, reject) => {
     connection.query(dbOperation, (err, result) => {
       if (err) {
-        reject (err);
+        return reject (err);
       }
       connection.end((err) => {
-        if (err) reject(err);
+        if (err) {
+          return reject(err);
+        }
       });
       resolve(result);
     });

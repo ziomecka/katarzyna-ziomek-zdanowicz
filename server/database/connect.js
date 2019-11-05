@@ -30,7 +30,9 @@ const createConnection = (options) => (
 const connect = async (options = {}) => (new Promise((resolve, reject) => {
   const connection = createConnection(options);
   connection.connect((err) => {
-    if (err) reject(err);
+    if (err) {
+      return reject(err);
+    }
     resolve(connection);
   });
 }));
