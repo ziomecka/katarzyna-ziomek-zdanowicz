@@ -5,6 +5,10 @@
   @include contentPadding
   &-story
     padding: 0
+    .content:nth-of-type(1)
+      p:first-of-type
+        &:before
+          content: '...'
 
 #frontend
   min-height: 100vh
