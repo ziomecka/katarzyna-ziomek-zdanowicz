@@ -1,19 +1,17 @@
 export const List: ComponentFunction<ListProps> =
-({ items, ItemsProps = {}, ...otherProps }) => {
+({ childrenProps, ...otherProps }) => {
   return createComponent({
     HTMLTag: 'ul',
-    children: items.map(value => (
+    children: childrenProps.map(childProps =>
       createComponent({
         HTMLTag: 'li',
-        value,
-        ...ItemsProps,
+        ...childProps,
       })
-    )),
+    ),
     ...otherProps,
   });
 };
 
 interface ListProps {
-  items: string[];
-  ItemsProps?: HTMLElementProps;
+  childrenProps: ComponentProps[];
 }

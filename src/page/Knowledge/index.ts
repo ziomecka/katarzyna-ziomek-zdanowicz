@@ -27,8 +27,10 @@ export const Knowledge: ComponentFunction<KnowledgeProps> = ({
           flexWrap: 'wrap',
         },
         className: listClassName,
-        items: hardList,
-        ItemsProps: { className: listItemClassName },
+        childrenProps: hardList.map(value => ({
+          className: listItemClassName,
+          value,
+        })),
       }),
     ],
   });

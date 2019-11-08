@@ -1,6 +1,6 @@
 import {
   Box,
-  TileList,
+  List,
 } from '../../components/';
 import {
   Footer,
@@ -14,6 +14,9 @@ import { loadListener } from './load-listener';
 import { tilesRender } from './tiles-render';
 
 const screenClassName = 'screen';
+
+const tileListClassName = 'list-tiles';
+const tileClassName = 'tile';
 
 export const Page: ComponentFunction = ({
   classNames,
@@ -57,15 +60,33 @@ export const Page: ComponentFunction = ({
         className: screenClassName,
         flex: { alignItems: 'center' },
         children: [
-          TileList({
-            items: tilesRender({ helpers: {
-              controlBodyScroll,
-              controlInternalState,
-              documentEventsPublisher,
-              modifyBodyClassList,
-              windowEventsPublisher,
-            } }),
-            flex: { alignItems: 'center' },
+          List({
+            className: tileListClassName,
+            props: {
+            },
+            childrenProps: tilesRender({
+              helpers: {
+                controlBodyScroll,
+                controlInternalState,
+                documentEventsPublisher,
+                modifyBodyClassList,
+                windowEventsPublisher,
+              },
+            }).map(props => ({
+              ...props,
+              className: tileClassName,
+              flex: {
+                display: 'inline-flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              },
+            })),
+            flex: {
+              justifyContent: 'center',
+              flexDirection: 'column',
+              alignItems: 'center',
+              flexWrap: 'wrap',
+            },
           }),
           Footer({ CVProps: { href: cvHref } }),
         ],
