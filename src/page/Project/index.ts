@@ -5,6 +5,7 @@ import {
 } from '../../components';
 import { ProjectContent } from '../_content/types';
 
+const listClassName = 'list--paragraph';
 const contentClassName = 'content-story';
 
 export const Project: ComponentFunction<ProjectProps> = ({
@@ -22,6 +23,7 @@ export const Project: ComponentFunction<ProjectProps> = ({
         className: contentClassName,
         children: [
           List({
+            className: listClassName,
             childrenProps: packagesList.map(([ href, value ]) => {
               return {
                 children: [ createComponent({
