@@ -17,6 +17,4 @@ export {
   ModalProps,
 } from './Modal';
 export { Textarea } from './Textarea';
-export { Tile } from './Tile';
-export { TileList } from './TileList';
 export { Typography, TypographyVariant } from './Typography';
