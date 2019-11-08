@@ -99,7 +99,7 @@ export const tilesList: TilesList = ({ helpers }) => {
     Component: ({
       modalId,
       closeModal,
-      attributes = {}
+      attributes = {},
     }: MappedComponent = {}): string => (
       Contact({
         content: contact,
@@ -128,9 +128,9 @@ export const tilesList: TilesList = ({ helpers }) => {
 type TileList = MappedProps[];
 type TilesList = ({ helpers }) => TileList;
 type MappedComponent = ComponentFunction<{
-  heading?: string,
-  modalId?: string,
-  closeModal?: () => void,
+  heading?: string;
+  modalId?: string;
+  closeModal?: () => void;
 }>;
 type MappedProps = {
   ModalProps?: Partial<ComponentProps> & Partial<ModalProps> & {

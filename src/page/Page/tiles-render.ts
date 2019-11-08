@@ -49,7 +49,7 @@ export const tilesRender = ({
   const closeModal = ({
     classList,
     modalId,
-  }: { classList?: ClassList, modalId?: string } = {}): void => {
+  }: { classList?: ClassList; modalId?: string } = {}): void => {
     if (classList) {
       classList.remove(showModalClassName);
     } else if (modalId) {
