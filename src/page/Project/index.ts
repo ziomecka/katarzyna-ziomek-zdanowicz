@@ -13,16 +13,20 @@ export const Project: ComponentFunction<ProjectProps> = ({
     ...otherProps,
     children: [
       contentOne && Content({ content: contentOne }),
-      List({
-        childrenProps: packagesList.map(([ href, value ]) => {
-          return {
-            children: [ createComponent({
-              HTMLTag: 'a',
-              attributes: { href },
-              value,
-            }) ],
-          };
-        }),
+      packagesList.length && Content({
+        children: [
+          List({
+            childrenProps: packagesList.map(([ href, value ]) => {
+              return {
+                children: [ createComponent({
+                  HTMLTag: 'a',
+                  attributes: { href },
+                  value,
+                }) ],
+              };
+            }),
+          }),
+        ],
       }),
       contentTwo && Content({ content: contentTwo }),
     ],
