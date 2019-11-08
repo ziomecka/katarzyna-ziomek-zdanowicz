@@ -1,6 +1,7 @@
 import {
   Contact,
   Knowledge,
+  Project,
 } from '../';
 import { Content, ModalProps } from '../../components/';
 import constants from './constants';
@@ -40,8 +41,8 @@ export const tilesList: TilesList = ({ helpers }) => {
 
   const projectTile = {
     id: projectId,
-    Component: ({ attributes = {} } = {}): string => Content({
-      content: project.content,
+    Component: ({ attributes = {} } = {}): string => Project({
+      content: project,
       attributes: { id: projectId, ...attributes },
       ...commonProps,
     }),
