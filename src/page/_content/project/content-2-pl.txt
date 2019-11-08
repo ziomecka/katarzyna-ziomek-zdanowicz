@@ -1,0 +1,5 @@
+The <i>rendering-recursive</i> packages are responsible for the server side rendering, the hydration on the client side, attaching observers, inline styling, and so on.
+The <i>render-it</i> packages build <i>createComponent</i> and <i>hydrate</i> functions. They also provide a range of dynamically imported helpers, among others, <i>controlInternalState</i> helper, that is inspired by the React's useState hook, and <i>enqueueScript</i> helper, that allows to enqueue scripts to be launched once the page is hydrated by the browser.
+Some other concepts used on this page are: publisher subscriber pattern, HTML5 form validation, dynamic imports, throttling, ARIA, SVG filters, CSP. The page required coding some back-end. I also did my best to optimize its perforamnce.
+I think these are good reasons for being proud of this project, aren't they?
+:-)

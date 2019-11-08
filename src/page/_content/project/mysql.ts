@@ -8,6 +8,9 @@ export const mySQL: ProjectMySQL = {
   heading: 'heading',
   title: 'title',
   content: 'content',
+  contentOne: 'field1',
+  contentTwo: 'field2',
+  packagesList: 'field3',
 };
 
 export default mySQL;

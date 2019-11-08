@@ -1,19 +1,10 @@
 is the page you're visiting currently.
-
 When I started to think how to code it, my first thought was to use React, in which I coded the most lately. However, I've decided that this library is too advanced to be used on this page.
-
 I value the coding ease offered by React. That is why I've decided to write my own library, thanks to which I would be able to achieve the desired effect in the relatively short term. I have done my best to achieve it.
-
 The page you are on is rendered on the server side. The browser hydrates the HTML received from the server. At this stage the event observers are attached to the HTML elements and the scripts, which have been registered by the individual components, are run.
-
 I applied the mobile first approach, so the page is fully responsive. Styling is done either in SASS or via the inline styles (depending on the convenience of styling). I wanted the page to be simple, yet standing out with small details.
-
-The page is coded in typescript. It depends on npm packages coded by me:
-<ul style="list-style-type: none"><li><a href="https://www.npmjs.com/package/publisher-subscriber-pattern" target="_blank" rel ="noopener noreferrer">publisher-subscriber-pattern</a></li><li><a href="https://www.npmjs.com/package/rendering-recursive-server-side" target="_blank" rel ="noopener noreferrer">rendering-recursive-server-side</a></li><li><a href="https://www.npmjs.com/package/rendering-recursive-client-side" target="_blank" rel ="noopener noreferrer">rendering-recursive-client-side</a></li><li><a href="https://www.npmjs.com/package/render-it-server" target="_blank" rel ="noopener noreferrer">render-it-server</a></li><li><a href="https://www.npmjs.com/package/render-it-client" target="_blank" rel ="noopener noreferrer">render-it-client</a></li></ul>
-The <i>rendering-recursive</i> packages are responsible for the server side rendering, the hydration on the client side, attaching observers, inline styling, and so on.
+The page is coded in typescript. It depends on npm packages coded by me:</p><ul style="list-style-type: none"><li><a href="https://www.npmjs.com/package/publisher-subscriber-pattern" target="_blank" rel ="noopener noreferrer">publisher-subscriber-pattern</a></li><li><a href="https://www.npmjs.com/package/rendering-recursive-server-side" target="_blank" rel ="noopener noreferrer">rendering-recursive-server-side</a></li><li><a href="https://www.npmjs.com/package/rendering-recursive-client-side" target="_blank" rel ="noopener noreferrer">rendering-recursive-client-side</a></li><li><a href="https://www.npmjs.com/package/render-it-server" target="_blank" rel ="noopener noreferrer">render-it-server</a></li><li><a href="https://www.npmjs.com/package/render-it-client" target="_blank" rel ="noopener noreferrer">render-it-client</a></li></ul><p class="typography aaa">The <i>rendering-recursive</i> packages are responsible for the server side rendering, the hydration on the client side, attaching observers, inline styling, and so on.
 The <i>render-it</i> packages build <i>createComponent</i> and <i>hydrate</i> functions. They also provide a range of dynamically imported helpers, among others, <i>controlInternalState</i> helper, that is inspired by the React's useState hook, and <i>enqueueScript</i> helper, that allows to enqueue scripts to be launched once the page is hydrated by the browser.
-
 Some other concepts used on this page are: publisher subscriber pattern, HTML5 form validation, dynamic imports, throttling, ARIA, SVG filters, CSP. The page required coding some back-end. I also did my best to optimize its perforamnce.
-
 I think these are good reasons for being proud of this project, aren't they?
 :-)

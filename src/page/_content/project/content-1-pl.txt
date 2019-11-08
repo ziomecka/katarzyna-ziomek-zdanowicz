@@ -1,0 +1,6 @@
+is the page you're visiting currently.
+When I started to think how to code it, my first thought was to use React, in which I coded the most lately. However, I've decided that this library is too advanced to be used on this page.
+I value the coding ease offered by React. That is why I've decided to write my own library, thanks to which I would be able to achieve the desired effect in the relatively short term. I have done my best to achieve it.
+The page you are on is rendered on the server side. The browser hydrates the HTML received from the server. At this stage the event observers are attached to the HTML elements and the scripts, which have been registered by the individual components, are run.
+I applied the mobile first approach, so the page is fully responsive. Styling is done either in SASS or via the inline styles (depending on the convenience of styling). I wanted the page to be simple, yet standing out with small details.
+The page is coded in typescript. It depends on npm packages coded by me:
