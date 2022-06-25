@@ -86,7 +86,7 @@
     "html-minify": "0.3.2",
     "lodash.throttle": "4.1.1",
     "mysql": "2.17.1",
-    "node-fetch": "2.6.0",
+    "node-fetch": "2.6.7",
     "publisher-subscriber": "1.0.12",
     "publisher-subscriber-pattern": "2.0.4",
     "render-it-client": "0.1.2",
